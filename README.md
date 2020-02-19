@@ -100,7 +100,7 @@ const personObj = {
 
 You can also validate an array of items:
 ```javascript
-const personObj = [
+const persons = [
     {
         name: "James",
         age: 25,
