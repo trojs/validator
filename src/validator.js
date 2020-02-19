@@ -56,8 +56,6 @@ export class Validator {
                     const validationMethod =
                         "validate" + value.constructor.name;
 
-                    console.log("method", validationMethod);
-
                     return this[validationMethod](value, fieldType);
                 }
 
