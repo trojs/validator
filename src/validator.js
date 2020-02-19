@@ -53,11 +53,12 @@ export class Validator {
                 }
 
                 if (!types.hasOwnProperty(fieldType)) {
-                    if (value.constructor == Array) {
-                        return this.validateArray(value, fieldType);
-                    } else {
-                        return this.validateObject(value, fieldType);
-                    }
+                    const validationMethod =
+                        "validate" + value.constructor.name;
+
+                    console.log("method", validationMethod);
+
+                    return this[validationMethod](value, fieldType);
                 }
 
                 const type = types[fieldType];
