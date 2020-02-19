@@ -98,6 +98,32 @@ const personObj = {
 }
 ```
 
+You can also validate an array of items:
+```javascript
+const personObj = [
+    {
+        name: "James",
+        age: 25,
+        siblings: ["Johnnathan"],
+        metaData: {},
+        active: true,
+        address: {
+            street: "Streetname",
+            number: 1,
+            postalCode: "1234AB",
+            city: "City",
+            country: "Somewehere"
+        },
+        companies: [
+            { name: "Example company 1", website: "https://hckr.news" }
+            { name: "Example company 2" }
+        ]
+    }
+];
+
+validator.validateAll(persons);
+```
+
 Available types:
 * string
 * array
