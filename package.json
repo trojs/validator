@@ -1,0 +1,49 @@
+{
+    "name": "@hckrnews/validator",
+    "version": "1.0.0",
+    "description": "Object validator",
+    "main": "src/validator.js",
+    "files": [
+        "src/validator.js"
+    ],
+    "scripts": {
+        "lint": "eslint .",
+        "test": "jest",
+        "coveralls": "jest && codecov && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "cpd": "node_modules/jscpd/bin/jscpd src"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/w3nl/validator.git"
+    },
+    "author": {
+        "name": "Pieter Wigboldus",
+        "url": "https://hckr.news/"
+    },
+    "license": "AGPL-3.0",
+    "bugs": {
+        "url": "https://github.com/w3nl/validator/issues"
+    },
+    "homepage": "https://github.com/w3nl/validator#readme",
+    "devDependencies": {
+        "@babel/core": "^7.8.4",
+        "@babel/preset-env": "^7.8.4",
+        "babel-eslint": "^10.0.3",
+        "babel-jest": "^25.1.0",
+        "codecov": "^3.6.1",
+        "coveralls": "^3.0.7",
+        "eslint": "^6.6.0",
+        "eslint-config-prettier": "^6.9.0",
+        "eslint-plugin-prettier": "^3.1.1",
+        "jest": "^25.1.0",
+        "jscpd": "^2.0.16",
+        "prettier": "1.19.1"
+    },
+    "engines": {
+        "node": ">=10"
+    },
+    "keywords": [
+        "objects",
+        "validator"
+    ]
+}
