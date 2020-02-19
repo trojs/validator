@@ -1,6 +1,6 @@
 {
     "name": "@hckrnews/validator",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "Object validator",
     "main": "src/validator.js",
     "files": [
@@ -14,7 +14,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/w3nl/validator.git"
+        "url": "git+https://github.com/hckrnews/validator.git"
     },
     "author": {
         "name": "Pieter Wigboldus",
@@ -22,9 +22,9 @@
     },
     "license": "AGPL-3.0",
     "bugs": {
-        "url": "https://github.com/w3nl/validator/issues"
+        "url": "https://github.com/hckrnews/validator/issues"
     },
-    "homepage": "https://github.com/w3nl/validator#readme",
+    "homepage": "https://github.com/hckrnews/validator#readme",
     "devDependencies": {
         "@babel/core": "^7.8.4",
         "@babel/preset-env": "^7.8.4",

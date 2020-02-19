@@ -66,7 +66,8 @@ const testCases = [
                 postalCode: "1234AB",
                 city: "City",
                 country: "Somewehere"
-            }
+            },
+            companies: [{ name: "Example", website: "https://hckr.news" }]
         },
         schema: personSchema,
         expectedValue: true
@@ -84,7 +85,8 @@ const testCases = [
                 postalCode: "1234AB",
                 city: "City",
                 country: "Somewehere"
-            }
+            },
+            companies: [{ name: "Example 1" }, { name: "Example 2" }]
         },
         schema: personSchema,
         expectedValue: true
