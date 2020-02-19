@@ -119,3 +119,78 @@ describe.each(testCases)(
         });
     }
 );
+
+const testCaseArrays = [
+    {
+        description: "Valid persons array",
+        input: [
+            {
+                name: "James",
+                age: 25,
+                siblings: ["Johnnathan"],
+                active: true,
+                address: {
+                    street: "Streetname",
+                    number: 1,
+                    postalCode: "1234AB",
+                    city: "City",
+                    country: "Somewehere"
+                },
+                companies: [{ name: "Example 1" }, { name: "Example 2" }]
+            }
+        ],
+        schema: personSchema,
+        expectedValue: true
+    },
+    {
+        description: "An invalid person",
+        input: [
+            {
+                name: "James",
+                age: 25,
+                active: true
+            }
+        ],
+        schema: personSchema,
+        expectedValue: false
+    },
+    {
+        description: "Not all persons are valid",
+        input: [
+            {
+                name: "James",
+                age: 25,
+                siblings: ["Johnnathan"],
+                active: true,
+                address: {
+                    street: "Streetname",
+                    number: 1,
+                    postalCode: "1234AB",
+                    city: "City",
+                    country: "Somewehere"
+                },
+                companies: [{ name: "Example 1" }, { name: "Example 2" }]
+            },
+            {
+                name: "James",
+                age: 25,
+                active: true
+            }
+        ],
+        schema: personSchema,
+        expectedValue: false
+    }
+];
+
+describe.each(testCaseArrays)(
+    "Validator test with arrays",
+    ({ description, input, schema, expectedValue }) => {
+        it(description, () => {
+            const validator = new Validator(schema);
+
+            expect(input.every(item => validator.validate(item))).toEqual(
+                expectedValue
+            );
+        });
+    }
+);
