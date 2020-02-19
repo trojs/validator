@@ -54,15 +54,9 @@ export class Validator {
 
                 if (!types.hasOwnProperty(fieldType)) {
                     if (value.constructor == Array) {
-                        return value.every(item => {
-                            const validator = new Validator(fieldType);
-
-                            return validator.validate(item);
-                        });
+                        return this.validateArray(value, fieldType);
                     } else {
-                        const validator = new Validator(fieldType);
-
-                        return validator.validate(value);
+                        return this.validateObject(value, fieldType);
                     }
                 }
 
@@ -71,5 +65,33 @@ export class Validator {
                 return value.constructor === type;
             }
         );
+    }
+
+    /**
+     * Validate an array
+     *
+     * @param {mixed} value
+     * @param {string} fieldType
+     *
+     * @return {boolean}
+     */
+    validateArray(value, fieldType) {
+        return value.every(item => {
+            return this.validateObject(item, fieldType);
+        });
+    }
+
+    /**
+     * Validate an object
+     *
+     * @param {mixed} value
+     * @param {string} fieldType
+     *
+     * @return {boolean}
+     */
+    validateObject(value, fieldType) {
+        const validator = new Validator(fieldType);
+
+        return validator.validate(value);
     }
 }
