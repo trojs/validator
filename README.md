@@ -54,6 +54,31 @@ const validator = new Validator(barSchema);
 validator.validate(barObj);
 ```
 
+Example multi level schema:
+```javascript
+const personSchema = {
+    name: "string",
+    age: "number",
+    siblings: "array",
+    metaData: "?object",
+    active: "boolean",
+    address: {
+        street: "string",
+        number: "number",
+        postalCode: "string",
+        city: "string",
+        country: "string"
+    }
+};
+```
+
+Available types:
+* string
+* array
+* object,
+* number
+* boolean
+
 [npm-url]: https://www.npmjs.com/package/@hckrnews/validator
 [npm-image]: https://img.shields.io/npm/v/@hckrnews/validator.svg
 [travis-url]: https://travis-ci.org/hckrnews/validator
