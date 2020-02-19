@@ -20,6 +20,21 @@ export class Validator {
     }
 
     /**
+     * Validate the an array of items.
+     *
+     * @param {array} input
+     *
+     * @return {boolean}
+     */
+    validateAll(input) {
+        if (input.constructor != Array || input.length < 1) {
+            return false;
+        }
+
+        return input.every(item => this.validate(item));
+    }
+
+    /**
      * Validate the input.
      *
      * @param {object} input

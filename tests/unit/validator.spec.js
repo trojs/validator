@@ -179,6 +179,31 @@ const testCaseArrays = [
         ],
         schema: personSchema,
         expectedValue: false
+    },
+    {
+        description: "Input isnt an array",
+        input: {
+            name: "James",
+            age: 25,
+            siblings: ["Johnnathan"],
+            active: true,
+            address: {
+                street: "Streetname",
+                number: 1,
+                postalCode: "1234AB",
+                city: "City",
+                country: "Somewehere"
+            },
+            companies: [{ name: "Example 1" }, { name: "Example 2" }]
+        },
+        schema: personSchema,
+        expectedValue: false
+    },
+    {
+        description: "Input is an empty array",
+        input: [],
+        schema: personSchema,
+        expectedValue: false
     }
 ];
 
@@ -188,9 +213,7 @@ describe.each(testCaseArrays)(
         it(description, () => {
             const validator = new Validator(schema);
 
-            expect(input.every(item => validator.validate(item))).toEqual(
-                expectedValue
-            );
+            expect(validator.validateAll(input)).toEqual(expectedValue);
         });
     }
 );
