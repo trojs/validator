@@ -1,4 +1,5 @@
 import addressSchema from "./address.js";
+import companySchema from "./company.js";
 
 export default {
     name: "string",
@@ -6,5 +7,6 @@ export default {
     siblings: "array",
     metaData: "?object",
     active: "boolean",
-    address: addressSchema
+    address: addressSchema,
+    companies: companySchema
 };

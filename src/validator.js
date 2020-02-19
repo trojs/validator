@@ -53,9 +53,17 @@ export class Validator {
                 }
 
                 if (!types.hasOwnProperty(fieldType)) {
-                    const validator = new Validator(fieldType);
+                    if (value.constructor == Array) {
+                        return value.every(item => {
+                            const validator = new Validator(fieldType);
 
-                    return validator.validate(value);
+                            return validator.validate(item);
+                        });
+                    } else {
+                        const validator = new Validator(fieldType);
+
+                        return validator.validate(value);
+                    }
                 }
 
                 const type = types[fieldType];
