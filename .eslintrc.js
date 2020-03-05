@@ -13,7 +13,6 @@ module.exports = {
         "no-control-regex": ["error"],
         "no-dupe-args": "error",
         "no-dupe-keys": "error",
-        "no-duplicate-case": ["error"],
         "no-dupe-else-if": "error",
         "no-duplicate-case": "error",
         "no-empty-character-class": ["error"],
