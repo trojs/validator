@@ -6,11 +6,6 @@ module.exports = {
         browser: true
     },
     extends: ['@hckrnews/eslint-config'],
-    rules: {
-        'import/prefer-default-export': 'off',
-        'no-prototype-builtins': 'off',
-        'class-methods-use-this': 'off'
-    },
     parserOptions: {
         sourceType: "module",
         parser: "babel-eslint",
