@@ -1,4 +1,4 @@
 export default {
-    name: "string",
-    website: "?string"
+    name: 'string',
+    website: '?string',
 };

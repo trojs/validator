@@ -1,116 +1,116 @@
-import { Validator } from "../../src/validator.js";
-import barSchema from "../../src/schemas/bar.js";
-import carSchema from "../../src/schemas/car.js";
-import personSchema from "../../src/schemas/person.js";
+import { Validator } from '../../src/validator';
+import barSchema from '../../src/schemas/bar';
+import carSchema from '../../src/schemas/car';
+import personSchema from '../../src/schemas/person';
 
 const testCases = [
     {
-        description: "A valid bar",
+        description: 'A valid bar',
         input: {
-            name: "Jimmys drinks",
-            address: "Somewhere over the rainbow",
+            name: 'Jimmys drinks',
+            address: 'Somewhere over the rainbow',
             drinks: {
-                beer: ["Straffe Hendrik", "Rochefort", "St Bernard"]
-            }
+                beer: ['Straffe Hendrik', 'Rochefort', 'St Bernard'],
+            },
         },
         schema: barSchema,
-        expectedValue: true
+        expectedValue: true,
     },
     {
-        description: "An invalid bar",
+        description: 'An invalid bar',
         input: {
-            name: "Sjonnies",
-            address: "Centrum 001",
+            name: 'Sjonnies',
+            address: 'Centrum 001',
             drinks: [
                 // < No object
-                "Heineken"
-            ]
+                'Heineken',
+            ],
         },
         schema: barSchema,
-        expectedValue: false
+        expectedValue: false,
     },
     {
-        description: "A valid car",
+        description: 'A valid car',
         input: {
-            brand: "Mazda",
-            type: "MX5 NB 1.8",
+            brand: 'Mazda',
+            type: 'MX5 NB 1.8',
             milage: 199999.99,
-            extras: ["2001 Special Edition"]
+            extras: ['2001 Special Edition'],
         },
         schema: carSchema,
-        expectedValue: true
+        expectedValue: true,
     },
     {
-        description: "An invalid car",
+        description: 'An invalid car',
         input: {
-            brand: "BMW",
-            type: "335",
+            brand: 'BMW',
+            type: '335',
             // No number
-            milage: "100000",
-            extras: ["LCI", "KW Coilovers"]
+            milage: '100000',
+            extras: ['LCI', 'KW Coilovers'],
         },
         schema: carSchema,
-        expectedValue: false
+        expectedValue: false,
     },
     {
-        description: "A valid person",
+        description: 'A valid person',
         input: {
-            name: "James",
+            name: 'James',
             age: 25,
-            siblings: ["Johnnathan"],
+            siblings: ['Johnnathan'],
             metaData: {},
             active: true,
             address: {
-                street: "Streetname",
+                street: 'Streetname',
                 number: 1,
-                postalCode: "1234AB",
-                city: "City",
-                country: "Somewehere"
+                postalCode: '1234AB',
+                city: 'City',
+                country: 'Somewehere',
             },
-            companies: [{ name: "Example", website: "https://hckr.news" }]
+            companies: [{ name: 'Example', website: 'https://hckr.news' }],
         },
         schema: personSchema,
-        expectedValue: true
+        expectedValue: true,
     },
     {
-        description: "An valid person without metaData",
+        description: 'An valid person without metaData',
         input: {
-            name: "James",
+            name: 'James',
             age: 25,
-            siblings: ["Johnnathan"],
+            siblings: ['Johnnathan'],
             active: true,
             address: {
-                street: "Streetname",
+                street: 'Streetname',
                 number: 1,
-                postalCode: "1234AB",
-                city: "City",
-                country: "Somewehere"
+                postalCode: '1234AB',
+                city: 'City',
+                country: 'Somewehere',
             },
-            companies: [{ name: "Example 1" }, { name: "Example 2" }]
+            companies: [{ name: 'Example 1' }, { name: 'Example 2' }],
         },
         schema: personSchema,
-        expectedValue: true
+        expectedValue: true,
     },
     {
-        description: "An invalid person",
+        description: 'An invalid person',
         input: {
-            name: "James",
+            name: 'James',
             age: 25,
-            active: true
+            active: true,
         },
         schema: personSchema,
-        expectedValue: false
+        expectedValue: false,
     },
     {
-        description: "An invalid person 2",
-        input: "",
+        description: 'An invalid person 2',
+        input: '',
         schema: personSchema,
-        expectedValue: false
-    }
+        expectedValue: false,
+    },
 ];
 
 describe.each(testCases)(
-    "Validator test",
+    'Validator test',
     ({ description, input, schema, expectedValue }) => {
         it(description, () => {
             const validator = new Validator(schema);
@@ -122,93 +122,93 @@ describe.each(testCases)(
 
 const testCaseArrays = [
     {
-        description: "Valid persons array",
+        description: 'Valid persons array',
         input: [
             {
-                name: "James",
+                name: 'James',
                 age: 25,
-                siblings: ["Johnnathan"],
+                siblings: ['Johnnathan'],
                 active: true,
                 address: {
-                    street: "Streetname",
+                    street: 'Streetname',
                     number: 1,
-                    postalCode: "1234AB",
-                    city: "City",
-                    country: "Somewehere"
+                    postalCode: '1234AB',
+                    city: 'City',
+                    country: 'Somewehere',
                 },
-                companies: [{ name: "Example 1" }, { name: "Example 2" }]
-            }
+                companies: [{ name: 'Example 1' }, { name: 'Example 2' }],
+            },
         ],
         schema: personSchema,
-        expectedValue: true
+        expectedValue: true,
     },
     {
-        description: "An invalid person",
+        description: 'An invalid person',
         input: [
             {
-                name: "James",
+                name: 'James',
                 age: 25,
-                active: true
-            }
+                active: true,
+            },
         ],
         schema: personSchema,
-        expectedValue: false
+        expectedValue: false,
     },
     {
-        description: "Not all persons are valid",
+        description: 'Not all persons are valid',
         input: [
             {
-                name: "James",
+                name: 'James',
                 age: 25,
-                siblings: ["Johnnathan"],
+                siblings: ['Johnnathan'],
                 active: true,
                 address: {
-                    street: "Streetname",
+                    street: 'Streetname',
                     number: 1,
-                    postalCode: "1234AB",
-                    city: "City",
-                    country: "Somewehere"
+                    postalCode: '1234AB',
+                    city: 'City',
+                    country: 'Somewehere',
                 },
-                companies: [{ name: "Example 1" }, { name: "Example 2" }]
+                companies: [{ name: 'Example 1' }, { name: 'Example 2' }],
             },
             {
-                name: "James",
+                name: 'James',
                 age: 25,
-                active: true
-            }
+                active: true,
+            },
         ],
         schema: personSchema,
-        expectedValue: false
+        expectedValue: false,
     },
     {
-        description: "Input isnt an array",
+        description: 'Input isnt an array',
         input: {
-            name: "James",
+            name: 'James',
             age: 25,
-            siblings: ["Johnnathan"],
+            siblings: ['Johnnathan'],
             active: true,
             address: {
-                street: "Streetname",
+                street: 'Streetname',
                 number: 1,
-                postalCode: "1234AB",
-                city: "City",
-                country: "Somewehere"
+                postalCode: '1234AB',
+                city: 'City',
+                country: 'Somewehere',
             },
-            companies: [{ name: "Example 1" }, { name: "Example 2" }]
+            companies: [{ name: 'Example 1' }, { name: 'Example 2' }],
         },
         schema: personSchema,
-        expectedValue: false
+        expectedValue: false,
     },
     {
-        description: "Input is an empty array",
+        description: 'Input is an empty array',
         input: [],
         schema: personSchema,
-        expectedValue: false
-    }
+        expectedValue: false,
+    },
 ];
 
 describe.each(testCaseArrays)(
-    "Validator test with arrays",
+    'Validator test with arrays',
     ({ description, input, schema, expectedValue }) => {
         it(description, () => {
             const validator = new Validator(schema);

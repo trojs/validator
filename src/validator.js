@@ -3,7 +3,7 @@ const types = {
     array: Array,
     object: Object,
     number: Number,
-    boolean: Boolean
+    boolean: Boolean,
 };
 
 /**
@@ -27,7 +27,7 @@ export class Validator {
      * @return {boolean}
      */
     validateAll(input) {
-        if (input.constructor != Array || input.length < 1) {
+        if (input.constructor !== Array || input.length < 1) {
             return false;
         }
 
@@ -51,12 +51,14 @@ export class Validator {
                 let fieldType = fieldTypeRaw;
 
                 if (
-                    fieldTypeRaw.constructor == String &&
-                    fieldTypeRaw.substr(0, 1) == "?"
+                    fieldTypeRaw.constructor === String &&
+                    fieldTypeRaw.substr(0, 1) === '?'
                 ) {
                     fieldType = fieldTypeRaw.substr(1);
 
-                    if (!input.hasOwnProperty(fieldName)) {
+                    if (
+                        !Object.prototype.hasOwnProperty.call(input, fieldName)
+                    ) {
                         return true;
                     }
                 }
@@ -68,8 +70,7 @@ export class Validator {
                 }
 
                 if (!types.hasOwnProperty(fieldType)) {
-                    const validationMethod =
-                        "validate" + value.constructor.name;
+                    const validationMethod = `validate${value.constructor.name}`;
 
                     return this[validationMethod](value, fieldType);
                 }
@@ -90,9 +91,7 @@ export class Validator {
      * @return {boolean}
      */
     validateArray(value, fieldType) {
-        return value.every(item => {
-            return this.validateObject(item, fieldType);
-        });
+        return value.every(item => this.validateObject(item, fieldType));
     }
 
     /**
