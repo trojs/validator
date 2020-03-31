@@ -2,11 +2,11 @@ import addressSchema from './address';
 import companySchema from './company';
 
 export default {
-    name: 'string',
-    age: 'number',
-    siblings: 'array',
-    metaData: '?object',
-    active: 'boolean',
+    name: String,
+    age: Number,
+    siblings: Array,
+    '?metaData': Object,
+    active: Boolean,
     address: addressSchema,
     companies: companySchema,
 };

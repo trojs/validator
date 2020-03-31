@@ -60,7 +60,7 @@ const personSchema = {
     name: "string",
     age: "number",
     siblings: "array",
-    metaData: "?object",
+    "?metaData": "object",
     active: "boolean",
     address: {
         street: "string",
@@ -71,7 +71,7 @@ const personSchema = {
     },
     companies:  {
         name: "string",
-        website: "?string"
+        "?website": "string"
     }
 };
 ```
@@ -100,6 +100,51 @@ const personObj = {
 
 You can also validate an array of items:
 ```javascript
+const persons = [
+    {
+        name: "James",
+        age: 25,
+        siblings: ["Johnnathan"],
+        metaData: {},
+        active: true,
+        address: {
+            street: "Streetname",
+            number: 1,
+            postalCode: "1234AB",
+            city: "City",
+            country: "Somewehere"
+        },
+        companies: [
+            { name: "Example company 1", website: "https://hckr.news" }
+            { name: "Example company 2" }
+        ]
+    }
+];
+
+validator.validateAll(persons);
+```
+
+And you can also compare to the objects:
+```javascript
+const personSchema = {
+    name: String,
+    age: Number,
+    siblings: Array,
+    "?metaData": Object,
+    active: Boolean,
+    address: {
+        street: String,
+        number: Number,
+        postalCode: String,
+        city: String,
+        country: String
+    },
+    companies:  {
+        name: String,
+        "?website": String
+    }
+};
+
 const persons = [
     {
         name: "James",
