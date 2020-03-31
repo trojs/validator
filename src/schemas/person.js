@@ -5,7 +5,7 @@ export default {
     name: 'string',
     age: 'number',
     siblings: 'array',
-    metaData: '?object',
+    '?metaData': 'object',
     active: 'boolean',
     address: addressSchema,
     companies: companySchema,

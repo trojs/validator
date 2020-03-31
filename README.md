@@ -60,7 +60,7 @@ const personSchema = {
     name: "string",
     age: "number",
     siblings: "array",
-    metaData: "?object",
+    "?metaData": "object",
     active: "boolean",
     address: {
         street: "string",
@@ -71,7 +71,7 @@ const personSchema = {
     },
     companies:  {
         name: "string",
-        website: "?string"
+        "?website": "string"
     }
 };
 ```

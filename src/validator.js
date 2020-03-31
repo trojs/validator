@@ -43,18 +43,15 @@ export class Validator {
      */
     validate(input) {
         return Object.entries(this.schema).every(
-            ([fieldName, fieldTypeRaw]) => {
+            ([fieldNameRaw, fieldType]) => {
                 if (!input) {
                     return false;
                 }
 
-                let fieldType = fieldTypeRaw;
+                let fieldName = fieldNameRaw;
 
-                if (
-                    fieldTypeRaw.constructor === String &&
-                    fieldTypeRaw.substr(0, 1) === '?'
-                ) {
-                    fieldType = fieldTypeRaw.substr(1);
+                if (fieldNameRaw.substr(0, 1) === '?') {
+                    fieldName = fieldNameRaw.substr(1);
 
                     if (
                         !Object.prototype.hasOwnProperty.call(input, fieldName)
@@ -108,3 +105,7 @@ export class Validator {
         return validator.validate(value);
     }
 }
+module.exports = {
+    Validator,
+    types,
+};
