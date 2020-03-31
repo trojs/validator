@@ -2,6 +2,8 @@ import { Validator } from '../../src/validator';
 import barSchema from '../../src/schemas/bar';
 import carSchema from '../../src/schemas/car';
 import personSchema from '../../src/schemas/person';
+import addressSchema from '../../src/schemas/address';
+import companySchema from '../../src/schemas/company';
 
 const testCases = [
     {
@@ -15,6 +17,7 @@ const testCases = [
         },
         schema: barSchema,
         expectedValue: true,
+        expectedErrors: [],
     },
     {
         description: 'An invalid bar',
@@ -28,6 +31,7 @@ const testCases = [
         },
         schema: barSchema,
         expectedValue: false,
+        expectedErrors: [['drinks', 'object']],
     },
     {
         description: 'A valid car',
@@ -39,6 +43,7 @@ const testCases = [
         },
         schema: carSchema,
         expectedValue: true,
+        expectedErrors: [],
     },
     {
         description: 'An invalid car',
@@ -51,6 +56,7 @@ const testCases = [
         },
         schema: carSchema,
         expectedValue: false,
+        expectedErrors: [['milage', 'number']],
     },
     {
         description: 'A valid person',
@@ -71,6 +77,7 @@ const testCases = [
         },
         schema: personSchema,
         expectedValue: true,
+        expectedErrors: [],
     },
     {
         description: 'An valid person without metaData',
@@ -90,6 +97,7 @@ const testCases = [
         },
         schema: personSchema,
         expectedValue: true,
+        expectedErrors: [],
     },
     {
         description: 'An invalid person',
@@ -100,22 +108,37 @@ const testCases = [
         },
         schema: personSchema,
         expectedValue: false,
+        expectedErrors: [
+            ['siblings', Array],
+            ['address', addressSchema],
+            ['companies', companySchema],
+        ],
     },
     {
         description: 'An invalid person 2',
         input: '',
         schema: personSchema,
         expectedValue: false,
+        expectedErrors: [
+            ['name', String],
+            ['age', Number],
+            ['siblings', Array],
+            ['?metaData', Object],
+            ['active', Boolean],
+            ['address', addressSchema],
+            ['companies', companySchema],
+        ],
     },
 ];
 
 describe.each(testCases)(
     'Validator test',
-    ({ description, input, schema, expectedValue }) => {
+    ({ description, input, schema, expectedValue, expectedErrors }) => {
         it(description, () => {
             const validator = new Validator(schema);
 
             expect(validator.validate(input)).toEqual(expectedValue);
+            expect(validator.errors).toEqual(expectedErrors);
         });
     }
 );

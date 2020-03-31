@@ -17,6 +17,7 @@ class Validator {
      */
     constructor(schema) {
         this.schema = schema;
+        this.errors = [];
     }
 
     /**
@@ -27,11 +28,12 @@ class Validator {
      * @return {boolean}
      */
     validateAll(input) {
+        this.errors = [];
         if (input.constructor !== Array || input.length < 1) {
             return false;
         }
 
-        return input.every(item => this.validate(item));
+        return input.every(item => this.validateItem(item));
     }
 
     /**
@@ -42,48 +44,62 @@ class Validator {
      * @return {boolean}
      */
     validate(input) {
-        return Object.entries(this.schema).every(
-            ([fieldNameRaw, fieldType]) => {
-                if (!input) {
-                    return false;
-                }
+        this.errors = [];
+        return this.validateItem(input);
+    }
 
-                let fieldName = fieldNameRaw;
-
-                if (fieldNameRaw.substr(0, 1) === '?') {
-                    fieldName = fieldNameRaw.substr(1);
-
-                    if (
-                        !Object.prototype.hasOwnProperty.call(input, fieldName)
-                    ) {
-                        return true;
-                    }
-                }
-
-                const value = input[fieldName];
-
-                if (!value) {
-                    return false;
-                }
-
-                if (
-                    typeof fieldType !== 'string' &&
-                    value.constructor === fieldType
-                ) {
-                    return true;
-                }
-
-                if (!types.hasOwnProperty(fieldType)) {
-                    const validationMethod = `validate${value.constructor.name}`;
-
-                    return this[validationMethod](value, fieldType);
-                }
-
-                const type = types[fieldType];
-
-                return value.constructor === type;
-            }
+    /**
+     * Validate an item.
+     *
+     * @param {object} item
+     *
+     * @return {boolean}
+     */
+    validateItem(item) {
+        this.errors = Object.entries(this.schema).filter(
+            ([fieldNameRaw, fieldType]) =>
+                !this.filterItems(fieldNameRaw, fieldType, item)
         );
+
+        return Object.entries(this.schema).every(([fieldNameRaw, fieldType]) =>
+            this.filterItems(fieldNameRaw, fieldType, item)
+        );
+    }
+
+    filterItems(fieldNameRaw, fieldType, item) {
+        if (!item) {
+            return false;
+        }
+
+        let fieldName = fieldNameRaw;
+
+        if (fieldNameRaw.substr(0, 1) === '?') {
+            fieldName = fieldNameRaw.substr(1);
+
+            if (!Object.prototype.hasOwnProperty.call(item, fieldName)) {
+                return true;
+            }
+        }
+
+        const value = item[fieldName];
+
+        if (!value) {
+            return false;
+        }
+
+        if (typeof fieldType !== 'string' && value.constructor === fieldType) {
+            return true;
+        }
+
+        if (!types.hasOwnProperty(fieldType)) {
+            const validationMethod = `validate${value.constructor.name}`;
+
+            return this[validationMethod](value, fieldType);
+        }
+
+        const type = types[fieldType];
+
+        return value.constructor === type;
     }
 
     /**
