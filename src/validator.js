@@ -66,6 +66,13 @@ export class Validator {
                     return false;
                 }
 
+                if (
+                    typeof fieldType !== 'string' &&
+                    value.constructor === fieldType
+                ) {
+                    return true;
+                }
+
                 if (!types.hasOwnProperty(fieldType)) {
                     const validationMethod = `validate${value.constructor.name}`;
 
