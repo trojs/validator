@@ -9,7 +9,7 @@ const types = {
 /**
  * Object validator.
  */
-export class Validator {
+class Validator {
     /**
      * Set the schema for the validator.
      *
@@ -112,6 +112,7 @@ export class Validator {
         return validator.validate(value);
     }
 }
+
 module.exports = {
     Validator,
     types,
