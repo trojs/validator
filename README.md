@@ -171,7 +171,9 @@ validator.validateAll(persons);
 
 ## Invalid fields
 
-If there are invalid fields, you can field the fields with `.errors`
+If there are invalid fields, you can field the fields with `.errors`.
+It returns an array with the field name and the expected type.
+
 ```javascript
 validator.errors
 
