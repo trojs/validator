@@ -169,6 +169,23 @@ const persons = [
 validator.validateAll(persons);
 ```
 
+## Invalid fields
+
+If there are invalid fields, you can field the fields with `.errors`
+```javascript
+validator.errors
+
+[
+    ['name', String],
+    ['age', Number],
+    ['siblings', Array],
+    ['?metaData', Object],
+    ['active', Boolean],
+    ['address', addressSchema],
+    ['companies', companySchema],
+]
+```
+
 Available types:
 * string
 * array
