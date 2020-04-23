@@ -1,6 +1,6 @@
 # Object validator by hckr.news
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url] [![Scrutinizer Code Quality][scrutinizer-image]][scrutinizer-url]
 
 Validate the object values by a schema.
 I hope you like it.
@@ -201,3 +201,5 @@ Available types:
 [travis-image]: https://img.shields.io/travis/hckrnews/validator/master.svg
 [coveralls-url]: https://coveralls.io/r/hckrnews/validator
 [coveralls-image]: https://img.shields.io/coveralls/hckrnews/validator/master.svg
+[scrutinizer-url]: https://scrutinizer-ci.com/g/hckrnews/validator/?branch=master
+[scrutinizer-image]: https://scrutinizer-ci.com/g/hckrnews/validator/badges/quality-score.png?b=master
