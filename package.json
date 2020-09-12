@@ -30,7 +30,7 @@
         "@babel/preset-env": "^7.9.5",
         "@hckrnews/eslint-config": "^0.2.0",
         "babel-eslint": "^10.1.0",
-        "babel-jest": "^25.4.0",
+        "babel-jest": "^26.3.0",
         "codecov": "^3.6.5",
         "coveralls": "^3.0.13",
         "eslint": "^6.6.0",
