@@ -5,6 +5,7 @@ const types = {
     number: Number,
     boolean: Boolean,
     url: URL,
+    date: Date,
 };
 
 /**

@@ -63,6 +63,7 @@ const testCases = [
         input: {
             name: 'James',
             age: 25,
+            birthDay: new Date('1982-12-24'),
             siblings: ['Johnnathan'],
             metaData: {},
             active: true,
@@ -86,6 +87,7 @@ const testCases = [
         input: {
             name: 'James',
             age: 25,
+            birthDay: new Date('1982-12-24'),
             siblings: ['Johnnathan'],
             active: true,
             address: {
@@ -106,6 +108,7 @@ const testCases = [
         input: {
             name: 'James',
             age: 25,
+            birthDay: new Date('1982-12-24'),
             active: true,
         },
         schema: personSchema,
@@ -124,6 +127,7 @@ const testCases = [
         expectedErrors: [
             ['name', String],
             ['age', Number],
+            ['birthDay', Date],
             ['siblings', Array],
             ['?metaData', Object],
             ['active', Boolean],
@@ -152,6 +156,7 @@ const testCaseArrays = [
             {
                 name: 'James',
                 age: 25,
+                birthDay: new Date('1982-12-24'),
                 siblings: ['Johnnathan'],
                 active: true,
                 address: {
@@ -173,6 +178,7 @@ const testCaseArrays = [
             {
                 name: 'James',
                 age: 25,
+                birthDay: new Date('1982-12-24'),
                 active: true,
             },
         ],
@@ -185,6 +191,7 @@ const testCaseArrays = [
             {
                 name: 'James',
                 age: 25,
+                birthDay: new Date('1982-12-24'),
                 siblings: ['Johnnathan'],
                 active: true,
                 address: {
@@ -210,6 +217,7 @@ const testCaseArrays = [
         input: {
             name: 'James',
             age: 25,
+            birthDay: new Date('1982-12-24'),
             siblings: ['Johnnathan'],
             active: true,
             address: {
