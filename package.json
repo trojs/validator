@@ -1,6 +1,6 @@
 {
     "name": "@hckrnews/validator",
-    "version": "2.1.5",
+    "version": "2.1.6",
     "description": "Object validator",
     "main": "src/validator.js",
     "files": [
