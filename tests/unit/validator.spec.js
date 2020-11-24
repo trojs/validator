@@ -73,7 +73,9 @@ const testCases = [
                 city: 'City',
                 country: 'Somewehere',
             },
-            companies: [{ name: 'Example', website: 'https://hckr.news' }],
+            companies: [
+                { name: 'Example', website: new URL('https://hckr.news') },
+            ],
         },
         schema: personSchema,
         expectedValue: true,

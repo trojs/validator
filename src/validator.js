@@ -4,6 +4,7 @@ const types = {
     object: Object,
     number: Number,
     boolean: Boolean,
+    url: URL,
 };
 
 /**
