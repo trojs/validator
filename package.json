@@ -1,6 +1,6 @@
 {
     "name": "@hckrnews/validator",
-    "version": "2.1.3",
+    "version": "2.1.4",
     "description": "Object validator",
     "main": "src/validator.js",
     "files": [
@@ -28,7 +28,7 @@
     "devDependencies": {
         "@babel/core": "^7.12.3",
         "@babel/preset-env": "^7.12.1",
-        "@hckrnews/eslint-config": "^0.2.0",
+        "@hckrnews/eslint-config": "^1.0.1",
         "babel-eslint": "^10.1.0",
         "babel-jest": "^25.5.1",
         "codecov": "^3.8.1",
