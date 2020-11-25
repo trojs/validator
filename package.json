@@ -44,7 +44,7 @@
         "eslint-plugin-vue": "^6.2.2",
         "jest": "^25.5.4",
         "jscpd": "^3.3.19",
-        "prettier": "1.19.1"
+        "prettier": "2.2.0"
     },
     "engines": {
         "node": ">=10"
