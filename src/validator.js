@@ -78,7 +78,11 @@ class Validator {
         if (fieldNameRaw.substr(0, 1) === '?') {
             fieldName = fieldNameRaw.substr(1);
 
-            if (!Object.prototype.hasOwnProperty.call(item, fieldName)) {
+            if (
+                !Object.prototype.hasOwnProperty.call(item, fieldName) ||
+                item[fieldName] === null ||
+                item[fieldName] === undefined
+            ) {
                 return true;
             }
         }

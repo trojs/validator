@@ -1,6 +1,6 @@
 {
     "name": "@hckrnews/validator",
-    "version": "2.1.6",
+    "version": "2.1.7",
     "description": "Object validator",
     "main": "src/validator.js",
     "files": [
@@ -26,7 +26,7 @@
     },
     "homepage": "https://github.com/hckrnews/validator#readme",
     "devDependencies": {
-        "@babel/core": "^7.12.3",
+        "@babel/core": "^7.12.9",
         "@babel/preset-env": "^7.12.1",
         "@hckrnews/eslint-config": "^1.0.1",
         "babel-eslint": "^10.1.0",
@@ -43,7 +43,7 @@
         "eslint-plugin-react": "^7.21.5",
         "eslint-plugin-vue": "^6.2.2",
         "jest": "^25.5.4",
-        "jscpd": "^3.3.19",
+        "jscpd": "^3.3.22",
         "prettier": "1.19.1"
     },
     "engines": {
