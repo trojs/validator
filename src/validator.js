@@ -89,7 +89,7 @@ class Validator {
 
         const value = item[fieldName];
 
-        if (!value) {
+        if (value === null || value === undefined) {
             return false;
         }
 
