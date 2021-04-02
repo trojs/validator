@@ -35,7 +35,7 @@ class Validator {
             return false;
         }
 
-        return input.every(item => this.validateItem(item));
+        return input.every((item) => this.validateItem(item));
     }
 
     /**
@@ -89,7 +89,7 @@ class Validator {
 
         const value = item[fieldName];
 
-        if (!value) {
+        if (value === null || value === undefined) {
             return false;
         }
 
@@ -117,7 +117,7 @@ class Validator {
      * @return {boolean}
      */
     validateArray(value, fieldType) {
-        return value.every(item => this.validateObject(item, fieldType));
+        return value.every((item) => this.validateObject(item, fieldType));
     }
 
     /**

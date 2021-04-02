@@ -89,7 +89,7 @@ const testCases = [
             age: 25,
             birthDay: new Date('1982-12-24'),
             siblings: ['Johnnathan'],
-            active: true,
+            active: false,
             address: {
                 street: 'Streetname',
                 number: 1,
@@ -186,8 +186,9 @@ describe.each(testCases)(
     ({ description, input, schema, expectedValue, expectedErrors }) => {
         it(description, () => {
             const validator = new Validator(schema);
+            const valid = validator.validate(input);
 
-            expect(validator.validate(input)).toEqual(expectedValue);
+            expect(valid).toEqual(expectedValue);
             expect(validator.errors).toEqual(expectedErrors);
         });
     }
