@@ -3,4 +3,5 @@ export default {
     type: 'string',
     milage: 'number',
     extras: 'array',
+    build: 'function',
 };
