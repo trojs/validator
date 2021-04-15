@@ -4,8 +4,22 @@ import carSchema from '../../src/schemas/car';
 import personSchema from '../../src/schemas/person';
 import addressSchema from '../../src/schemas/address';
 import companySchema from '../../src/schemas/company';
+import test1Schema from '../../src/schemas/test1';
+import Test2 from '../../src/schemas/test2';
+
+const test2 = new Test2('me');
 
 const testCases = [
+    {
+        description: 'A valid test',
+        input: {
+            name: 'test',
+            test: test2,
+        },
+        schema: test1Schema,
+        expectedValue: true,
+        expectedErrors: [],
+    },
     {
         description: 'A valid bar',
         input: {
