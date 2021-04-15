@@ -81,7 +81,7 @@ class Validator {
         }
 
         if (fieldNameRaw.substr(-1, 1) === '?') {
-            fieldName = fieldNameRaw.substr(0, fieldNameRaw.length - 1);
+            fieldName = fieldNameRaw.slice(0, -1);
         }
 
         if (
