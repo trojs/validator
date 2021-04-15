@@ -78,26 +78,19 @@ class Validator {
 
         if (fieldNameRaw.substr(0, 1) === '?') {
             fieldName = fieldNameRaw.substr(1);
-
-            if (
-                !Object.prototype.hasOwnProperty.call(item, fieldName) ||
-                item[fieldName] === null ||
-                item[fieldName] === undefined
-            ) {
-                return true;
-            }
         }
 
         if (fieldNameRaw.substr(-1, 1) === '?') {
             fieldName = fieldNameRaw.substr(0, fieldNameRaw.length - 1);
+        }
 
-            if (
-                !Object.prototype.hasOwnProperty.call(item, fieldName) ||
+        if (
+            fieldName !== fieldNameRaw &&
+            (!(fieldName in item) ||
                 item[fieldName] === null ||
-                item[fieldName] === undefined
-            ) {
-                return true;
-            }
+                item[fieldName] === undefined)
+        ) {
+            return true;
         }
 
         const value = item[fieldName];
@@ -110,7 +103,7 @@ class Validator {
             return true;
         }
 
-        if (!types.hasOwnProperty(fieldType)) {
+        if (!(fieldType in types)) {
             const validationMethod = `validate${value.constructor.name}`;
 
             return this[validationMethod](value, fieldType);
