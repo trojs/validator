@@ -6,7 +6,7 @@ export default {
     age: Number,
     birthDay: Date,
     siblings: Array,
-    '?metaData': Object,
+    'metaData?': Object,
     active: Boolean,
     address: addressSchema,
     companies: companySchema,
