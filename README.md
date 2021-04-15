@@ -191,9 +191,12 @@ validator.errors
 Available types:
 * string
 * array
-* object,
+* object
 * number
 * boolean
+* url
+* date
+* function
 
 [npm-url]: https://www.npmjs.com/package/@hckrnews/validator
 [npm-image]: https://img.shields.io/npm/v/@hckrnews/validator.svg
