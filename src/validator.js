@@ -88,6 +88,18 @@ class Validator {
             }
         }
 
+        if (fieldNameRaw.substr(-1, 1) === '?') {
+            fieldName = fieldNameRaw.substr(0, fieldNameRaw.length - 1);
+
+            if (
+                !Object.prototype.hasOwnProperty.call(item, fieldName) ||
+                item[fieldName] === null ||
+                item[fieldName] === undefined
+            ) {
+                return true;
+            }
+        }
+
         const value = item[fieldName];
 
         if (value === null || value === undefined) {
