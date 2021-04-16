@@ -106,7 +106,9 @@ class Validator {
         if (!(fieldType in types)) {
             const validationMethod = `validate${value.constructor.name}`;
 
-            return this[validationMethod](value, fieldType);
+            return this[validationMethod]
+                ? this[validationMethod](value, fieldType)
+                : false;
         }
 
         const type = types[fieldType];
