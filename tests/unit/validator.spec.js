@@ -11,7 +11,7 @@ const test2 = new Test2('me');
 
 const testCases = [
     {
-        description: 'A valid test',
+        description: 'A valid test with a custom type',
         input: {
             name: 'test',
             test: test2,
@@ -19,6 +19,16 @@ const testCases = [
         schema: test1Schema,
         expectedValue: true,
         expectedErrors: [],
+    },
+    {
+        description: 'A invalid test with a custom type',
+        input: {
+            name: 'test',
+            test: 'test',
+        },
+        schema: test1Schema,
+        expectedValue: false,
+        expectedErrors: [['test', Test2]],
     },
     {
         description: 'A valid bar',
