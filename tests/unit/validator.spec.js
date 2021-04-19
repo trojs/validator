@@ -31,6 +31,17 @@ const testCases = [
         expectedErrors: [['test', Test2]],
     },
     {
+        description: 'A invalid test with a custom type',
+        input: {
+            name: 'test',
+            test: test2,
+            test3: 'test',
+        },
+        schema: test1Schema,
+        expectedValue: false,
+        expectedErrors: [['test3?', { name: String }]],
+    },
+    {
         description: 'A valid bar',
         input: {
             name: 'Jimmys drinks',
