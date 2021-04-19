@@ -21,6 +21,17 @@ const testCases = [
         expectedErrors: [],
     },
     {
+        description: 'A valid test with a sub schema',
+        input: {
+            name: 'test',
+            test: test2,
+            test3: { example: 'ok' },
+        },
+        schema: test1Schema,
+        expectedValue: true,
+        expectedErrors: [],
+    },
+    {
         description: 'A invalid test with a custom type',
         input: {
             name: 'test',
@@ -31,7 +42,7 @@ const testCases = [
         expectedErrors: [['test', Test2]],
     },
     {
-        description: 'A invalid test with a custom type',
+        description: 'A invalid test with a sub schema',
         input: {
             name: 'test',
             test: test2,
@@ -39,7 +50,18 @@ const testCases = [
         },
         schema: test1Schema,
         expectedValue: false,
-        expectedErrors: [['test3?', { name: String }]],
+        expectedErrors: [['test3?', { example: String }]],
+    },
+    {
+        description: 'A invalid test with a field of the sub scherma',
+        input: {
+            name: 'test',
+            test: test2,
+            test3: { example: 42 },
+        },
+        schema: test1Schema,
+        expectedValue: false,
+        expectedErrors: [['test3?', { example: String }]],
     },
     {
         description: 'A valid bar',
