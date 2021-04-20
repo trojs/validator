@@ -5,4 +5,5 @@ export default {
     name: String,
     test: Test2,
     'test3?': Test3Schema,
+    'test4?': 'mixed',
 };

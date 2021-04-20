@@ -64,6 +64,28 @@ const testCases = [
         expectedErrors: [['test3?', { example: String }]],
     },
     {
+        description: 'A test with a mixed field',
+        input: {
+            name: 'test',
+            test: test2,
+            test4: { example: 42 },
+        },
+        schema: test1Schema,
+        expectedValue: true,
+        expectedErrors: [],
+    },
+    {
+        description: 'A test with a mixed field',
+        input: {
+            name: 'test',
+            test: test2,
+            test4: 42,
+        },
+        schema: test1Schema,
+        expectedValue: true,
+        expectedErrors: [],
+    },
+    {
         description: 'A valid bar',
         input: {
             name: 'Jimmys drinks',

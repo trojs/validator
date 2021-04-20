@@ -99,7 +99,11 @@ class Validator {
             return false;
         }
 
-        if (typeof fieldType !== 'string' && value.constructor === fieldType) {
+        if (
+            (typeof fieldType !== 'string' &&
+                value.constructor === fieldType) ||
+            fieldType === 'mixed'
+        ) {
             return true;
         }
 
