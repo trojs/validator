@@ -32,7 +32,8 @@ Example schema:
 const barSchema = {
     name: "string",
     address: "string",
-    drinks: "object"
+    drinks: "object",
+    "building?": "function|async",
 };
 ```
 
@@ -198,6 +199,9 @@ Available types:
 * date
 * function
 * async
+
+You can check for multiple types.
+e.g. `function|async` so it can receive a normal function and also a sync function
 
 [npm-url]: https://www.npmjs.com/package/@hckrnews/validator
 [npm-image]: https://img.shields.io/npm/v/@hckrnews/validator.svg
