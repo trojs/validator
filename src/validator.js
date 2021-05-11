@@ -72,6 +72,19 @@ class Validator {
         );
     }
 
+    findFieldType(fieldType, value) {
+        if (typeof fieldType === 'string') {
+            const fieldTypes = fieldType.split('|');
+            if (fieldTypes.length > 1) {
+                return fieldTypes.find(
+                    (fieldValue) => types[fieldValue] === value.constructor
+                );
+            }
+            return fieldTypes[0];
+        }
+        return fieldType;
+    }
+
     filterItems(fieldNameRaw, fieldType, item) {
         if (!item) {
             return false;
@@ -110,7 +123,8 @@ class Validator {
             return true;
         }
 
-        if (!(fieldType in types)) {
+        const fieldTypeX = this.findFieldType(fieldType, value);
+        if (!(fieldTypeX in types)) {
             const validationMethod = `validate${value.constructor.name}`;
 
             return this[validationMethod]
@@ -118,7 +132,7 @@ class Validator {
                 : false;
         }
 
-        const type = types[fieldType];
+        const type = types[fieldTypeX];
 
         return value.constructor === type;
     }

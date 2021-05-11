@@ -197,6 +197,7 @@ Available types:
 * url
 * date
 * function
+* async
 
 [npm-url]: https://www.npmjs.com/package/@hckrnews/validator
 [npm-image]: https://img.shields.io/npm/v/@hckrnews/validator.svg
