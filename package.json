@@ -1,6 +1,6 @@
 {
     "name": "@hckrnews/validator",
-    "version": "4.4.0",
+    "version": "4.4.1",
     "description": "Object validator",
     "main": "dist/validator.js",
     "files": [
@@ -70,7 +70,6 @@
         "microbundle": "^0.13.0",
         "prettier": "^2.3.0"
     },
-    "type": "module",
     "engines": {
         "node": ">=14"
     },
