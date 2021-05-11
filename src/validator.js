@@ -1,3 +1,5 @@
+const exampleAsyncFunction = async () => {};
+const AsyncFunction = exampleAsyncFunction.constructor;
 const types = {
     string: String,
     array: Array,
@@ -7,6 +9,7 @@ const types = {
     url: URL,
     date: Date,
     function: Function,
+    async: AsyncFunction,
 };
 
 /**

@@ -86,6 +86,28 @@ const testCases = [
         expectedErrors: [],
     },
     {
+        description: 'A test with an async function',
+        input: {
+            name: 'test',
+            test: test2,
+            test5: async () => {},
+        },
+        schema: test1Schema,
+        expectedValue: true,
+        expectedErrors: [],
+    },
+    {
+        description: 'A test with an invalid async function',
+        input: {
+            name: 'test',
+            test: test2,
+            test5: () => {},
+        },
+        schema: test1Schema,
+        expectedValue: false,
+        expectedErrors: [['test5?', 'async']],
+    },
+    {
         description: 'A valid bar',
         input: {
             name: 'Jimmys drinks',

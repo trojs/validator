@@ -6,4 +6,5 @@ export default {
     test: Test2,
     'test3?': Test3Schema,
     'test4?': 'mixed',
+    'test5?': 'async',
 };
