@@ -1,8 +1,9 @@
 {
     "name": "@hckrnews/validator",
-    "version": "4.4.1",
+    "version": "4.4.2",
     "description": "Object validator",
     "main": "dist/validator.js",
+    "type": "module",
     "files": [
         "src/validator.js",
         "dist/validator.js",
@@ -20,11 +21,11 @@
     "unpkg": "dist/validator.umd.cjs",
     "umd:main": "dist/validator.umd.cjs",
     "exports": {
-        ".": {
-            "require": "./dist/validator.umd.cjs",
-            "import": "./dist/validator.module.mjs",
-            "default": "./dist/validator.js"
-        }
+        "node": {
+            "module": "./src/validator.js",
+            "require": "./dist/validator.umd.cjs"
+        },
+        "default": "./src/validator.js"
     },
     "scripts": {
         "build": "microbundle --target node",
