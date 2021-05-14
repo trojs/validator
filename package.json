@@ -1,35 +1,13 @@
 {
     "name": "@hckrnews/validator",
-    "version": "4.4.2",
+    "version": "5.0.0",
     "description": "Object validator",
-    "main": "dist/validator.js",
+    "main": "src/validator.js",
     "type": "module",
     "files": [
-        "src/validator.js",
-        "dist/validator.js",
-        "dist/validator.js.map",
-        "dist/validator.module.mjs",
-        "dist/validator.module.mjs.map",
-        "dist/validator.modern.mjs",
-        "dist/validator.modern.mjs.map",
-        "dist/validator.umd.cjs",
-        "dist/validator.umd.cjs.map"
+        "src/validator.js"
     ],
-    "source": "src/validator.js",
-    "module": "dist/validator.module.mjs",
-    "esmodule": "dist/validator.modern.mjs",
-    "unpkg": "dist/validator.umd.cjs",
-    "umd:main": "dist/validator.umd.cjs",
-    "exports": {
-        "node": {
-            "module": "./src/validator.js",
-            "require": "./dist/validator.umd.cjs"
-        },
-        "default": "./src/validator.js"
-    },
     "scripts": {
-        "build": "microbundle --target node",
-        "dev": "microbundle --target node watch",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "test": "jest",
@@ -68,7 +46,6 @@
         "eslint-plugin-prettier": "^3.3.1",
         "jest": "^26.6.3",
         "jscpd": "^3.3.25",
-        "microbundle": "^0.13.0",
         "prettier": "^2.3.0"
     },
     "engines": {
