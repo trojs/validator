@@ -164,7 +164,5 @@ class Validator {
     }
 }
 
-module.exports = {
-    Validator,
-    types,
-};
+export { Validator, types };
+export default Validator;
