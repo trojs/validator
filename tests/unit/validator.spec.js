@@ -1,3 +1,4 @@
+import { expect, describe, it } from '@jest/globals';
 import { Validator } from '../../src/validator';
 import barSchema from '../../src/schemas/bar';
 import carSchema from '../../src/schemas/car';
@@ -294,6 +295,41 @@ const testCases = [
             ['address', addressSchema],
             ['companies', companySchema],
         ],
+    },
+    {
+        description:
+            'A valid test with a mixed object or string and a object as value',
+        input: {
+            name: 'test',
+            test: test2,
+            test6: { example: 'ok' },
+        },
+        schema: test1Schema,
+        expectedValue: true,
+        expectedErrors: [],
+    },
+    {
+        description:
+            'A valid test with a mixed object or string and a string as value',
+        input: {
+            name: 'test',
+            test: test2,
+            test6: 'test',
+        },
+        schema: test1Schema,
+        expectedValue: true,
+        expectedErrors: [],
+    },
+    {
+        description: 'An invalid test with a mixed object or string',
+        input: {
+            name: 'test',
+            test: test2,
+            test6: 42,
+        },
+        schema: test1Schema,
+        expectedValue: false,
+        expectedErrors: [['test6?', 'object|string']],
     },
 ];
 
