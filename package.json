@@ -1,6 +1,6 @@
 {
     "name": "@hckrnews/validator",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "description": "Object validator",
     "main": "src/validator.js",
     "type": "module",
@@ -13,7 +13,8 @@
         "test": "jest",
         "test:watch": "jest src --watch",
         "coveralls": "jest && codecov && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-        "cpd": "node_modules/jscpd/bin/jscpd src"
+        "cpd": "node_modules/jscpd/bin/jscpd src",
+        "vulnerabilities": "npm audit --json | npm-audit-helper --prod-only"
     },
     "repository": {
         "type": "git",
@@ -30,11 +31,12 @@
     "homepage": "https://github.com/hckrnews/validator#readme",
     "devDependencies": {
         "@babel/core": "^7.13.14",
+        "@babel/eslint-parser": "^7.14.7",
+        "@babel/plugin-transform-modules-commonjs": "^7.14.0",
         "@babel/plugin-transform-runtime": "^7.13.15",
         "@babel/preset-env": "^7.13.12",
         "@hckrnews/eslint-config": "^2.0.0",
-        "babel-eslint": "^10.1.0",
-        "babel-jest": "^26.6.3",
+        "@jest/globals": "^27.0.6",
         "codecov": "^3.8.1",
         "coveralls": "^3.1.0",
         "eslint": "^7.23.0",
@@ -44,8 +46,9 @@
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-jsx-a11y": "^6.4.1",
         "eslint-plugin-prettier": "^3.3.1",
-        "jest": "^26.6.3",
+        "jest": "^27.0.6",
         "jscpd": "^3.3.25",
+        "npm-audit-helper": "^3.1.1",
         "prettier": "^2.3.0"
     },
     "engines": {

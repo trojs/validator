@@ -8,9 +8,9 @@ module.exports = {
     extends: ['@hckrnews/eslint-config'],
     parserOptions: {
         sourceType: 'module',
-        parser: 'babel-eslint',
+        parser: '@babel/eslint-parser',
         babelOptions: {
-            configFile: 'babel.config.js',
+            configFile: './babel.config.cjs',
         },
     },
     overrides: [
