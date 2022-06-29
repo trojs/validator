@@ -282,6 +282,28 @@ const testCases = [
     },
     {
         description: 'An invalid person 2',
+        input: {
+            name: '',
+            age: 25,
+            birthDay: new Date('1982-12-24'),
+            siblings: ['Johnnathan'],
+            metaData: undefined,
+            active: true,
+            address: {
+                street: 'Streetname',
+                number: 1,
+                postalCode: '1234AB',
+                city: 'City',
+                country: 'Somewehere',
+            },
+            companies: [{ name: 'Example 1' }, { name: 'Example 2' }],
+        },
+        schema: personSchema,
+        expectedValue: false,
+        expectedErrors: [['name', String]],
+    },
+    {
+        description: 'An invalid person 3',
         input: '',
         schema: personSchema,
         expectedValue: false,

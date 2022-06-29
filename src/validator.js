@@ -104,14 +104,15 @@ class Validator {
             fieldName !== fieldNameRaw &&
             (!(fieldName in item) ||
                 item[fieldName] === null ||
-                item[fieldName] === undefined)
+                item[fieldName] === undefined ||
+                item[fieldName] === '')
         ) {
             return true;
         }
 
         const value = item[fieldName];
 
-        if (value === null || value === undefined) {
+        if (value === null || value === undefined || value === '') {
             return false;
         }
 
