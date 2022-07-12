@@ -1,5 +1,5 @@
-import Test2 from './test2';
-import Test3Schema from './test3';
+import Test2 from './test2.js';
+import Test3Schema from './test3.js';
 
 export default {
     name: String,

@@ -1,12 +1,13 @@
-import { expect, describe, it } from '@jest/globals';
-import { Validator } from '../../src/validator';
-import barSchema from '../../src/schemas/bar';
-import carSchema from '../../src/schemas/car';
-import personSchema from '../../src/schemas/person';
-import addressSchema from '../../src/schemas/address';
-import companySchema from '../../src/schemas/company';
-import test1Schema from '../../src/schemas/test1';
-import Test2 from '../../src/schemas/test2';
+import test from 'node:test';
+import assert from 'assert';
+import { Validator } from '../../src/validator.js';
+import barSchema from '../../src/schemas/bar.js';
+import carSchema from '../../src/schemas/car.js';
+import personSchema from '../../src/schemas/person.js';
+import addressSchema from '../../src/schemas/address.js';
+import companySchema from '../../src/schemas/company.js';
+import test1Schema from '../../src/schemas/test1.js';
+import Test2 from '../../src/schemas/test2.js';
 
 const test2 = new Test2('me');
 
@@ -332,6 +333,18 @@ const testCases = [
     },
     {
         description:
+            'A valid test with a mixed object or string and a object as value',
+        input: {
+            name: 'test',
+            test: test2,
+            test6: { example: '' },
+        },
+        schema: test1Schema,
+        expectedValue: true,
+        expectedErrors: [],
+    },
+    {
+        description:
             'A valid test with a mixed object or string and a string as value',
         input: {
             name: 'test',
@@ -355,18 +368,27 @@ const testCases = [
     },
 ];
 
-describe.each(testCases)(
-    'Validator test',
-    ({ description, input, schema, expectedValue, expectedErrors }) => {
-        it(description, () => {
-            const validator = new Validator(schema);
-            const valid = validator.validate(input);
+test('Validator test', async (t) => {
+    await Promise.all(
+        testCases.map(
+            async ({
+                description,
+                input,
+                schema,
+                expectedValue,
+                expectedErrors,
+            }) => {
+                await t.test(description, () => {
+                    const validator = new Validator(schema);
+                    const valid = validator.validate(input);
 
-            expect(valid).toEqual(expectedValue);
-            expect(validator.errors).toEqual(expectedErrors);
-        });
-    }
-);
+                    assert.strictEqual(valid, expectedValue);
+                    assert.deepEqual(validator.errors, expectedErrors);
+                });
+            }
+        )
+    );
+});
 
 const testCaseArrays = [
     {
@@ -459,13 +481,19 @@ const testCaseArrays = [
     },
 ];
 
-describe.each(testCaseArrays)(
-    'Validator test with arrays',
-    ({ description, input, schema, expectedValue }) => {
-        it(description, () => {
-            const validator = new Validator(schema);
+test('Validator test with arrays', async (t) => {
+    await Promise.all(
+        testCaseArrays.map(
+            async ({ description, input, schema, expectedValue }) => {
+                await t.test(description, () => {
+                    const validator = new Validator(schema);
 
-            expect(validator.validateAll(input)).toEqual(expectedValue);
-        });
-    }
-);
+                    assert.deepEqual(
+                        validator.validateAll(input),
+                        expectedValue
+                    );
+                });
+            }
+        )
+    );
+});

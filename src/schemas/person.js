@@ -1,5 +1,5 @@
-import addressSchema from './address';
-import companySchema from './company';
+import addressSchema from './address.js';
+import companySchema from './company.js';
 
 export default {
     name: String,
