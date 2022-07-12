@@ -1,0 +1,28 @@
+{
+    "extends": [
+        "@hckrnews/eslint-config"
+    ],
+    "plugins": [
+        "import"
+    ],
+    "rules": {
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "always"
+            }
+        ],
+        "consistent-return": "warn",
+        "eqeqeq": "warn"
+    },
+    "env": {
+        "es6": true,
+        "node": true,
+        "jquery": false,
+        "browser": true
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    },
+}

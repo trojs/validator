@@ -5,6 +5,14 @@
 Validate the object values by a schema.
 I hope you like it.
 
+## Sponsors :tada:
+
+If it has saved you development time, please consider [sponsoring the project](https://github.com/sponsors/w3nl)
+with GitHub sponsors!
+
+But me a coffee/book: https://www.buymeacoffee.com/hckrnews
+Or on patreon: https://patreon.com/w3news
+
 ## Installation
 
 `npm install @hckrnews/validator`
