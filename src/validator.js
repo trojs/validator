@@ -166,4 +166,3 @@ class Validator {
 }
 
 export { Validator, types };
-export default Validator;
