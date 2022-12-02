@@ -1,8 +1,8 @@
 {
     "name": "@hckrnews/validator",
-    "version": "8.0.4",
+    "version": "8.0.5",
     "description": "Object validator",
-    "main": "dist/validator.umd.cjs",
+    "main": "dist/validator.cjs",
     "type": "module",
     "files": [
         "src/validator.js",
@@ -17,16 +17,16 @@
     ],
     "source": "src/validator.js",
     "module": "dist/validator.module.mjs",
-    "unpkg": "dist/validator.umd.cjs",
-    "umd:main": "dist/validator.umd.cjs",
+    "unpkg": "dist/validator.cjs",
+    "umd:main": "dist/validator.cjs",
     "exports": {
         "node": {
-            "default": "dist/validator.umd.cjs",
+            "default": "dist/validator.cjs",
             "module": "./src/validator.js",
-            "require": "./dist/validator.umd.cjs"
+            "require": "./dist/validator.cjs"
         },
-        "require": "./dist/validator.umd.cjs",
-        "default": "./dist/validator.umd.cjs"
+        "require": "./dist/validator.cjs",
+        "default": "./dist/validator.cjs"
     },
     "scripts": {
         "lint": "eslint src",
