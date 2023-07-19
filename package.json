@@ -1,6 +1,6 @@
 {
     "name": "@hckrnews/validator",
-    "version": "8.0.6",
+    "version": "8.0.7",
     "description": "Object validator",
     "main": "dist/validator.umd.cjs",
     "type": "module",
