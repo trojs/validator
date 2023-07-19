@@ -1,6 +1,6 @@
 {
     "name": "@hckrnews/validator",
-    "version": "8.0.5",
+    "version": "8.0.6",
     "description": "Object validator",
     "main": "dist/validator.umd.cjs",
     "type": "module",
@@ -52,7 +52,7 @@
     "homepage": "https://github.com/hckrnews/validator#readme",
     "devDependencies": {
         "@hckrnews/eslint-config": "^3.0.0",
-        "c8": "^7.11.3",
+        "c8": "^8.0.0",
         "eslint": "^8.18.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-prettier": "^8.5.0",
