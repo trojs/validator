@@ -1,6 +1,6 @@
 {
     "name": "@hckrnews/validator",
-    "version": "8.0.8",
+    "version": "8.0.9",
     "description": "Object validator",
     "main": "dist/validator.umd.cjs",
     "type": "module",
@@ -45,7 +45,7 @@
         "name": "Pieter Wigboldus",
         "url": "https://hckr.news/"
     },
-    "license": "AGPL-3.0",
+    "license": "LGPL-3.0",
     "bugs": {
         "url": "https://github.com/hckrnews/validator/issues"
     },
