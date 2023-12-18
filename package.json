@@ -1,41 +1,21 @@
 {
     "name": "@hckrnews/validator",
-    "version": "8.0.13",
+    "version": "9.0.0",
     "description": "Object validator",
-    "main": "dist/validator.umd.cjs",
+    "main": "src/validator.js",
     "type": "module",
     "files": [
-        "src/validator.js",
-        "dist/validator.cjs",
-        "dist/validator.cjs.map",
-        "dist/validator.js",
-        "dist/validator.js.map",
-        "dist/validator.module.mjs",
-        "dist/validator.module.mjs.map",
-        "dist/validator.umd.cjs",
-        "dist/validator.umd.cjs.map"
+        "src/validator.js"
     ],
     "source": "src/validator.js",
-    "module": "dist/validator.module.mjs",
-    "unpkg": "dist/validator.umd.cjs",
-    "umd:main": "dist/validator.umd.cjs",
-    "exports": {
-        "node": {
-            "default": "./dist/validator.umd.cjs",
-            "module": "./src/validator.js",
-            "require": "./dist/validator.umd.cjs"
-        },
-        "require": "./dist/validator.umd.cjs",
-        "default": "./dist/validator.umd.cjs"
-    },
+    "module": "src/validator.js",
     "scripts": {
         "lint": "eslint src",
         "lint:report": "eslint src --config .eslintrc -f json -o report.json",
         "lint:fix": "eslint src --fix",
         "test": "c8 node --test tests/unit/validator.spec.js",
         "cpd": "node_modules/jscpd/bin/jscpd src",
-        "vulnerabilities": "npm audit --production",
-        "build": "microbundle --target node"
+        "vulnerabilities": "npm audit --production"
     },
     "repository": {
         "type": "git",
@@ -62,7 +42,6 @@
         "eslint-plugin-jsx-a11y": "^6.6.0",
         "eslint-plugin-prettier": "^5.0.0",
         "jscpd": "^3.3.25",
-        "microbundle": "^0.15.1",
         "prettier": "^3.0.0"
     },
     "engines": {
