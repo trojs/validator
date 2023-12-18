@@ -1,5 +1,5 @@
 import test from 'node:test';
-import assert from 'assert';
+import assert from 'node:assert';
 import { Validator } from '../../src/validator.js';
 import barSchema from '../../src/schemas/bar.js';
 import carSchema from '../../src/schemas/car.js';

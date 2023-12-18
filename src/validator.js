@@ -85,6 +85,13 @@ class Validator {
         return fieldType;
     }
 
+    /**
+     * Filter the items.
+     * @param {string} fieldNameRaw
+     * @param {any} fieldType
+     * @param {object} item
+     * @return {boolean}
+     */
     filterItems(fieldNameRaw, fieldType, item) {
         if (!item) {
             return false;
@@ -92,11 +99,11 @@ class Validator {
 
         let fieldName = fieldNameRaw;
 
-        if (fieldNameRaw.substr(0, 1) === '?') {
-            fieldName = fieldNameRaw.substr(1);
+        if (fieldNameRaw.startsWith('?')) {
+            fieldName = fieldNameRaw.slice(1);
         }
 
-        if (fieldNameRaw.substr(-1, 1) === '?') {
+        if (fieldNameRaw.endsWith('?')) {
             fieldName = fieldNameRaw.slice(0, -1);
         }
 
@@ -141,7 +148,7 @@ class Validator {
     /**
      * Validate an array
      *
-     * @param {mixed} value
+     * @param {any} value
      * @param {string} fieldType
      *
      * @return {boolean}
@@ -153,7 +160,7 @@ class Validator {
     /**
      * Validate an object
      *
-     * @param {mixed} value
+     * @param {any} value
      * @param {string} fieldType
      *
      * @return {boolean}
