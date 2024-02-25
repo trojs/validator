@@ -42,7 +42,7 @@
         "eslint-plugin-jsx-a11y": "^6.6.0",
         "eslint-plugin-prettier": "^5.1.3",
         "jscpd": "^3.3.25",
-        "prettier": "^3.0.0"
+        "prettier": "^3.2.5"
     },
     "engines": {
         "node": ">= 18"
