@@ -1,5 +1,5 @@
 {
-    "name": "@hckrnews/validator",
+    "name": "@trojs/validator",
     "version": "9.0.4",
     "description": "Object validator",
     "main": "src/validator.js",
@@ -23,7 +23,7 @@
     },
     "author": {
         "name": "Pieter Wigboldus",
-        "url": "https://hckr.news/"
+        "url": "https://trojs.org/"
     },
     "license": "MIT",
     "bugs": {

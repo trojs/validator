@@ -193,7 +193,7 @@ const testCases = [
                 country: 'Somewehere',
             },
             companies: [
-                { name: 'Example', website: new URL('https://hckr.news') },
+                { name: 'Example', website: new URL('https://trojs.org') },
             ],
         },
         schema: personSchema,
