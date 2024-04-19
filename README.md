@@ -1,6 +1,6 @@
-# Object validator by hckr.news
+# Object validator by TroJS
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url] [![Scrutinizer Code Quality][scrutinizer-image]][scrutinizer-url]
+[![NPM version][npm-image]][npm-url]
 
 Validate the object values by a schema.
 I hope you like it.
@@ -10,14 +10,13 @@ I hope you like it.
 If it has saved you development time, please consider [sponsoring the project](https://github.com/sponsors/w3nl)
 with GitHub sponsors!
 
-But me a coffee/book: https://www.buymeacoffee.com/hckrnews
 Or on patreon: https://patreon.com/w3news
 
 ## Installation
 
-`npm install @hckrnews/validator`
+`npm install @trojs/validator`
 or
-`yarn add @hckrnews/validator`
+`yarn add @trojs/validator`
 
 ## Test the package
 
@@ -101,7 +100,7 @@ const personObj = {
         country: "Somewehere"
     },
     companies: [
-        { name: "Example company 1", website: "https://hckr.news" }
+        { name: "Example company 1", website: "https://trojs.org" }
         { name: "Example company 2" }
     ]
 }
@@ -124,7 +123,7 @@ const persons = [
             country: "Somewehere"
         },
         companies: [
-            { name: "Example company 1", website: "https://hckr.news" }
+            { name: "Example company 1", website: "https://trojs.org" }
             { name: "Example company 2" }
         ]
     }
@@ -169,7 +168,7 @@ const persons = [
             country: "Somewehere"
         },
         companies: [
-            { name: "Example company 1", website: "https://hckr.news" }
+            { name: "Example company 1", website: "https://trojs.org" }
             { name: "Example company 2" }
         ]
     }
@@ -211,11 +210,5 @@ Available types:
 You can check for multiple types.
 e.g. `function|async` so it can receive a normal function and also a sync function
 
-[npm-url]: https://www.npmjs.com/package/@hckrnews/validator
-[npm-image]: https://img.shields.io/npm/v/@hckrnews/validator.svg
-[travis-url]: https://travis-ci.org/hckrnews/validator
-[travis-image]: https://img.shields.io/travis/hckrnews/validator/master.svg
-[coveralls-url]: https://coveralls.io/r/hckrnews/validator
-[coveralls-image]: https://img.shields.io/coveralls/hckrnews/validator/master.svg
-[scrutinizer-url]: https://scrutinizer-ci.com/g/hckrnews/validator/?branch=master
-[scrutinizer-image]: https://scrutinizer-ci.com/g/hckrnews/validator/badges/quality-score.png?b=master
+[npm-url]: https://www.npmjs.com/package/@trojs/validator
+[npm-image]: https://img.shields.io/npm/v/@trojs/validator.svg
