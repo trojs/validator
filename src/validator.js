@@ -18,7 +18,6 @@ const types = {
 class Validator {
     /**
      * Set the schema for the validator.
-     *
      * @param {object} schema
      */
     constructor(schema) {
@@ -28,10 +27,8 @@ class Validator {
 
     /**
      * Validate the an array of items.
-     *
-     * @param {array} input
-     *
-     * @return {boolean}
+     * @param {Array} input
+     * @returns {boolean}
      */
     validateAll(input) {
         this.errors = [];
@@ -44,10 +41,8 @@ class Validator {
 
     /**
      * Validate the input.
-     *
      * @param {object} input
-     *
-     * @return {boolean}
+     * @returns {boolean}
      */
     validate(input) {
         this.errors = [];
@@ -56,10 +51,8 @@ class Validator {
 
     /**
      * Validate an item.
-     *
      * @param {object} item
-     *
-     * @return {boolean}
+     * @returns {boolean}
      */
     validateItem(item) {
         this.errors = Object.entries(this.schema).filter(
@@ -90,7 +83,7 @@ class Validator {
      * @param {string} fieldNameRaw
      * @param {any} fieldType
      * @param {object} item
-     * @return {boolean}
+     * @returns {boolean}
      */
     filterItems(fieldNameRaw, fieldType, item) {
         if (!item) {
@@ -147,11 +140,9 @@ class Validator {
 
     /**
      * Validate an array
-     *
      * @param {any} value
      * @param {string} fieldType
-     *
-     * @return {boolean}
+     * @returns {boolean}
      */
     validateArray(value, fieldType) {
         return value.every((item) => this.validateObject(item, fieldType));
@@ -159,11 +150,9 @@ class Validator {
 
     /**
      * Validate an object
-     *
      * @param {any} value
      * @param {string} fieldType
-     *
-     * @return {boolean}
+     * @returns {boolean}
      */
     validateObject(value, fieldType) {
         const validator = new Validator(fieldType);
