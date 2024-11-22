@@ -9,7 +9,7 @@ const types = {
     url: URL,
     date: Date,
     function: Function,
-    async: AsyncFunction,
+    async: AsyncFunction
 }
 
 /**
@@ -36,7 +36,7 @@ class Validator {
             return false
         }
 
-        return input.every((item) => this.validateItem(item))
+        return input.every(item => this.validateItem(item))
     }
 
     /**
@@ -119,7 +119,7 @@ class Validator {
         if (
             (typeof fieldType !== 'string' &&
                 value.constructor === fieldType) ||
-            fieldType === 'mixed'
+                fieldType === 'mixed'
         ) {
             return true
         }
@@ -145,7 +145,7 @@ class Validator {
      * @returns {boolean}
      */
     validateArray(value, fieldType) {
-        return value.every((item) => this.validateObject(item, fieldType))
+        return value.every(item => this.validateObject(item, fieldType))
     }
 
     /**

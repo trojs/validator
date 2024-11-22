@@ -9,5 +9,5 @@ export default {
     'metaData?': Object,
     active: Boolean,
     address: addressSchema,
-    companies: companySchema,
+    companies: companySchema
 }

@@ -21,15 +21,14 @@ export default [
     prettierConfig,
     // sonarjsPlugin.configs.recommended,
     {
-        files: ['**/*.js'],
         languageOptions: {
             ecmaVersion: 'latest',
-            sourceType: 'module',
+            sourceType: 'module'
         },
         settings: {
             jsdoc: {
-                mode: 'typescript',
-            },
+                mode: 'typescript'
+            }
         },
         plugins: {
             stylistic: stylisticPlugin,
@@ -45,14 +44,14 @@ export default [
                 'error',
                 4,
                 {
-                    ignoredNodes: ['TemplateLiteral'],
-                },
+                    ignoredNodes: ['TemplateLiteral']
+                }
             ],
             camelcase: [
                 'error',
                 {
-                    properties: 'never',
-                },
+                    properties: 'never'
+                }
             ],
             'max-params': ['warn', 5],
             'max-depth': ['warn', 4],
@@ -68,35 +67,35 @@ export default [
                 'error',
                 'ForInStatement',
                 'LabeledStatement',
-                'WithStatement',
+                'WithStatement'
             ],
             'no-unused-vars': [
                 'error',
                 {
                     ignoreRestSiblings: true,
-                    argsIgnorePattern: 'res|next|^err',
-                },
+                    argsIgnorePattern: 'res|next|^err'
+                }
             ],
             'prefer-const': [
                 'error',
                 {
-                    destructuring: 'all',
-                },
+                    destructuring: 'all'
+                }
             ],
             'arrow-body-style': ['error', 'as-needed'],
             'no-unused-expressions': [
                 'error',
                 {
-                    allowTaggedTemplates: true,
-                },
+                    allowTaggedTemplates: true
+                }
             ],
             'max-len': [
                 'error',
                 {
                     code: 120,
                     comments: 80,
-                    tabWidth: 4,
-                },
+                    tabWidth: 4
+                }
             ],
             'no-shadow': [
                 'error',
@@ -108,25 +107,25 @@ export default [
                         'done',
                         'next',
                         'err',
-                        'error',
-                    ],
-                },
+                        'error'
+                    ]
+                }
             ],
             quotes: [
                 'error',
                 'single',
                 {
                     avoidEscape: true,
-                    allowTemplateLiterals: true,
-                },
+                    allowTemplateLiterals: true
+                }
             ],
             'vars-on-top': 'error',
             'block-scoped-var': 'error',
             complexity: [
                 'error',
                 {
-                    max: 20,
-                },
+                    max: 20
+                }
             ],
             'consistent-return': 'error',
             'max-classes-per-file': ['error', 1],
@@ -137,8 +136,8 @@ export default [
                 'error',
                 {
                     allowLoop: false,
-                    allowSwitch: false,
-                },
+                    allowSwitch: false
+                }
             ],
             'no-loop-func': 'error',
 
@@ -146,8 +145,8 @@ export default [
             'no-else-return': [
                 'error',
                 {
-                    allowElseIf: false,
-                },
+                    allowElseIf: false
+                }
             ],
             'no-multi-assign': ['error'],
             'no-console': 'warn',
@@ -162,9 +161,9 @@ export default [
                         'req',
                         'request',
                         'res',
-                        'response',
-                    ],
-                },
+                        'response'
+                    ]
+                }
             ],
             'no-useless-concat': 'error',
             'no-nested-ternary': 'error',
@@ -173,8 +172,8 @@ export default [
             'getter-return': [
                 'error',
                 {
-                    allowImplicit: true,
-                },
+                    allowImplicit: true
+                }
             ],
             'no-await-in-loop': 'error',
             'no-inner-declarations': 'error',
@@ -184,24 +183,24 @@ export default [
                 'error',
                 {
                     allowNamedFunctions: false,
-                    allowUnboundThis: true,
-                },
+                    allowUnboundThis: true
+                }
             ],
             'prefer-destructuring': [
                 'error',
                 {
                     VariableDeclarator: {
                         array: false,
-                        object: true,
+                        object: true
                     },
                     AssignmentExpression: {
                         array: true,
-                        object: false,
-                    },
+                        object: false
+                    }
                 },
                 {
-                    enforceForRenamedProperties: false,
-                },
+                    enforceForRenamedProperties: false
+                }
             ],
             'prefer-rest-params': 'error',
             'prefer-spread': 'error',
@@ -212,14 +211,15 @@ export default [
             'no-delete-var': 'error',
 
             'stylistic/semi': ['error', 'never'],
+            '@stylistic/js/comma-dangle': ['error', 'never'],
 
             'import/prefer-default-export': 'off',
             'import/no-unresolved': [
                 'error',
                 {
                     caseSensitive: true,
-                    ignore: ['\\.ts$'],
-                },
+                    ignore: ['\\.ts$']
+                }
             ],
             'import/named': 'error',
             'import/no-named-as-default': 'error',
@@ -228,28 +228,28 @@ export default [
             'import/order': [
                 'error',
                 {
-                    groups: [['builtin', 'external', 'internal']],
-                },
+                    groups: [['builtin', 'external', 'internal']]
+                }
             ],
             'import/no-self-import': 'error',
             'import/no-cycle': [
                 'error',
                 {
-                    maxDepth: '∞',
-                },
+                    maxDepth: '∞'
+                }
             ],
             'import/no-useless-path-segments': [
                 'error',
                 {
-                    commonjs: true,
-                },
+                    commonjs: true
+                }
             ],
             'import/extensions': [
                 'error',
                 'ignorePackages',
                 {
-                    js: 'always',
-                },
+                    js: 'always'
+                }
             ],
 
             'jsdoc/check-access': 'off',
@@ -264,8 +264,8 @@ export default [
             'jsdoc/check-types': [
                 'error',
                 {
-                    unifyParentAndChildTypeChecks: true,
-                },
+                    unifyParentAndChildTypeChecks: true
+                }
             ],
             'jsdoc/check-values': 'error',
             'jsdoc/empty-tags': 'error',
@@ -303,7 +303,6 @@ export default [
             'jsdoc/require-yields-check': 'error',
             'jsdoc/tag-lines': 'error',
             'jsdoc/valid-types': 'warn',
-
 
             'sonarjs/anchor-precedence': 'error',
             'sonarjs/argument-type': 'error',
@@ -633,6 +632,6 @@ export default [
             'sonarjs/no-self-import': 'error',
             'sonarjs/no-unused-expressions': 'off',
             'sonarjs/rules-of-hooks': 'error'
-        },
-    },
+        }
+    }
 ]

@@ -11,114 +11,116 @@ import Test2 from '../../src/schemas/test2.js'
 
 const test2 = new Test2('me')
 
+const birthDate = '1982-12-24'
+
 const testCases = [
     {
         description: 'A valid test with a custom type',
         input: {
             name: 'test',
-            test: test2,
+            test: test2
         },
         schema: test1Schema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'A valid test with a sub schema',
         input: {
             name: 'test',
             test: test2,
-            test3: { example: 'ok' },
+            test3: { example: 'ok' }
         },
         schema: test1Schema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'A invalid test with a custom type',
         input: {
             name: 'test',
-            test: 'test',
+            test: 'test'
         },
         schema: test1Schema,
         expectedValue: false,
-        expectedErrors: [['test', Test2]],
+        expectedErrors: [['test', Test2]]
     },
     {
         description: 'A invalid test with a sub schema',
         input: {
             name: 'test',
             test: test2,
-            test3: 'test',
+            test3: 'test'
         },
         schema: test1Schema,
         expectedValue: false,
-        expectedErrors: [['test3?', { example: String }]],
+        expectedErrors: [['test3?', { example: String }]]
     },
     {
         description: 'A invalid test with a field of the sub scherma',
         input: {
             name: 'test',
             test: test2,
-            test3: { example: 42 },
+            test3: { example: 42 }
         },
         schema: test1Schema,
         expectedValue: false,
-        expectedErrors: [['test3?', { example: String }]],
+        expectedErrors: [['test3?', { example: String }]]
     },
     {
         description: 'A test with a mixed field',
         input: {
             name: 'test',
             test: test2,
-            test4: { example: 42 },
+            test4: { example: 42 }
         },
         schema: test1Schema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'A test with a mixed field',
         input: {
             name: 'test',
             test: test2,
-            test4: 42,
+            test4: 42
         },
         schema: test1Schema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'A test with an async function',
         input: {
             name: 'test',
             test: test2,
-            test5: async () => {},
+            test5: async () => {}
         },
         schema: test1Schema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'A test with a function',
         input: {
             name: 'test',
             test: test2,
-            test5: () => {},
+            test5: () => {}
         },
         schema: test1Schema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'A test with a invalid (async) function',
         input: {
             name: 'test',
             test: test2,
-            test5: 42,
+            test5: 42
         },
         schema: test1Schema,
         expectedValue: false,
-        expectedErrors: [['test5?', 'function|async']],
+        expectedErrors: [['test5?', 'function|async']]
     },
     {
         description: 'A valid bar',
@@ -126,12 +128,12 @@ const testCases = [
             name: 'Jimmys drinks',
             address: 'Somewhere over the rainbow',
             drinks: {
-                beer: ['Straffe Hendrik', 'Rochefort', 'St Bernard'],
-            },
+                beer: ['Straffe Hendrik', 'Rochefort', 'St Bernard']
+            }
         },
         schema: barSchema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'An invalid bar',
@@ -140,12 +142,12 @@ const testCases = [
             address: 'Centrum 001',
             drinks: [
                 // < No object
-                'Heineken',
-            ],
+                'Heineken'
+            ]
         },
         schema: barSchema,
         expectedValue: false,
-        expectedErrors: [['drinks', 'object']],
+        expectedErrors: [['drinks', 'object']]
     },
     {
         description: 'A valid car',
@@ -154,11 +156,11 @@ const testCases = [
             type: 'MX5 NB 1.8',
             milage: 199999.99,
             extras: ['2001 Special Edition'],
-            build: () => {},
+            build: () => {}
         },
         schema: carSchema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'An invalid car',
@@ -167,21 +169,21 @@ const testCases = [
             type: '335',
             // No number
             milage: '100000',
-            extras: ['LCI', 'KW Coilovers'],
+            extras: ['LCI', 'KW Coilovers']
         },
         schema: carSchema,
         expectedValue: false,
         expectedErrors: [
             ['milage', 'number'],
-            ['build', 'function'],
-        ],
+            ['build', 'function']
+        ]
     },
     {
         description: 'A valid person',
         input: {
             name: 'James',
             age: 25,
-            birthDay: new Date('1982-12-24'),
+            birthDay: new Date(birthDate),
             siblings: ['Johnnathan'],
             metaData: {},
             active: true,
@@ -190,22 +192,22 @@ const testCases = [
                 number: 1,
                 postalCode: '1234AB',
                 city: 'City',
-                country: 'Somewehere',
+                country: 'Somewehere'
             },
             companies: [
-                { name: 'Example', website: new URL('https://trojs.org') },
-            ],
+                { name: 'Example', website: new URL('https://trojs.org') }
+            ]
         },
         schema: personSchema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'An valid person without metaData',
         input: {
             name: 'James',
             age: 25,
-            birthDay: new Date('1982-12-24'),
+            birthDay: new Date(birthDate),
             siblings: ['Johnnathan'],
             active: false,
             address: {
@@ -213,20 +215,20 @@ const testCases = [
                 number: 1,
                 postalCode: '1234AB',
                 city: 'City',
-                country: 'Somewehere',
+                country: 'Somewehere'
             },
-            companies: [{ name: 'Example 1' }, { name: 'Example 2' }],
+            companies: [{ name: 'Example 1' }, { name: 'Example 2' }]
         },
         schema: personSchema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'An valid person where metaData is null',
         input: {
             name: 'James',
             age: 25,
-            birthDay: new Date('1982-12-24'),
+            birthDay: new Date(birthDate),
             siblings: ['Johnnathan'],
             metaData: null,
             active: true,
@@ -235,20 +237,20 @@ const testCases = [
                 number: 1,
                 postalCode: '1234AB',
                 city: 'City',
-                country: 'Somewehere',
+                country: 'Somewehere'
             },
-            companies: [{ name: 'Example 1' }, { name: 'Example 2' }],
+            companies: [{ name: 'Example 1' }, { name: 'Example 2' }]
         },
         schema: personSchema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'An valid person where metaData is undefined',
         input: {
             name: 'James',
             age: 25,
-            birthDay: new Date('1982-12-24'),
+            birthDay: new Date(birthDate),
             siblings: ['Johnnathan'],
             metaData: undefined,
             active: true,
@@ -257,36 +259,36 @@ const testCases = [
                 number: 1,
                 postalCode: '1234AB',
                 city: 'City',
-                country: 'Somewehere',
+                country: 'Somewehere'
             },
-            companies: [{ name: 'Example 1' }, { name: 'Example 2' }],
+            companies: [{ name: 'Example 1' }, { name: 'Example 2' }]
         },
         schema: personSchema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'An invalid person',
         input: {
             name: 'James',
             age: 25,
-            birthDay: new Date('1982-12-24'),
-            active: true,
+            birthDay: new Date(birthDate),
+            active: true
         },
         schema: personSchema,
         expectedValue: false,
         expectedErrors: [
             ['siblings', Array],
             ['address', addressSchema],
-            ['companies', companySchema],
-        ],
+            ['companies', companySchema]
+        ]
     },
     {
         description: 'An invalid person 2',
         input: {
             name: '',
             age: 25,
-            birthDay: new Date('1982-12-24'),
+            birthDay: new Date(birthDate),
             siblings: ['Johnnathan'],
             metaData: undefined,
             active: true,
@@ -295,13 +297,13 @@ const testCases = [
                 number: 1,
                 postalCode: '1234AB',
                 city: 'City',
-                country: 'Somewehere',
+                country: 'Somewehere'
             },
-            companies: [{ name: 'Example 1' }, { name: 'Example 2' }],
+            companies: [{ name: 'Example 1' }, { name: 'Example 2' }]
         },
         schema: personSchema,
         expectedValue: false,
-        expectedErrors: [['name', String]],
+        expectedErrors: [['name', String]]
     },
     {
         description: 'An invalid person 3',
@@ -316,8 +318,8 @@ const testCases = [
             ['metaData?', Object],
             ['active', Boolean],
             ['address', addressSchema],
-            ['companies', companySchema],
-        ],
+            ['companies', companySchema]
+        ]
     },
     {
         description:
@@ -325,11 +327,11 @@ const testCases = [
         input: {
             name: 'test',
             test: test2,
-            test6: { example: 'ok' },
+            test6: { example: 'ok' }
         },
         schema: test1Schema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description:
@@ -337,11 +339,11 @@ const testCases = [
         input: {
             name: 'test',
             test: test2,
-            test6: { example: '' },
+            test6: { example: '' }
         },
         schema: test1Schema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description:
@@ -349,23 +351,23 @@ const testCases = [
         input: {
             name: 'test',
             test: test2,
-            test6: 'test',
+            test6: 'test'
         },
         schema: test1Schema,
         expectedValue: true,
-        expectedErrors: [],
+        expectedErrors: []
     },
     {
         description: 'An invalid test with a mixed object or string',
         input: {
             name: 'test',
             test: test2,
-            test6: 42,
+            test6: 42
         },
         schema: test1Schema,
         expectedValue: false,
-        expectedErrors: [['test6?', 'object|string']],
-    },
+        expectedErrors: [['test6?', 'object|string']]
+    }
 ]
 
 test('Validator test', async (t) => {
@@ -376,7 +378,7 @@ test('Validator test', async (t) => {
                 input,
                 schema,
                 expectedValue,
-                expectedErrors,
+                expectedErrors
             }) => {
                 await t.test(description, () => {
                     const validator = new Validator(schema)
@@ -397,7 +399,7 @@ const testCaseArrays = [
             {
                 name: 'James',
                 age: 25,
-                birthDay: new Date('1982-12-24'),
+                birthDay: new Date(birthDate),
                 siblings: ['Johnnathan'],
                 active: true,
                 address: {
@@ -405,13 +407,13 @@ const testCaseArrays = [
                     number: 1,
                     postalCode: '1234AB',
                     city: 'City',
-                    country: 'Somewehere',
+                    country: 'Somewehere'
                 },
-                companies: [{ name: 'Example 1' }, { name: 'Example 2' }],
-            },
+                companies: [{ name: 'Example 1' }, { name: 'Example 2' }]
+            }
         ],
         schema: personSchema,
-        expectedValue: true,
+        expectedValue: true
     },
     {
         description: 'An invalid person',
@@ -419,12 +421,12 @@ const testCaseArrays = [
             {
                 name: 'James',
                 age: 25,
-                birthDay: new Date('1982-12-24'),
-                active: true,
-            },
+                birthDay: new Date(birthDate),
+                active: true
+            }
         ],
         schema: personSchema,
-        expectedValue: false,
+        expectedValue: false
     },
     {
         description: 'Not all persons are valid',
@@ -432,7 +434,7 @@ const testCaseArrays = [
             {
                 name: 'James',
                 age: 25,
-                birthDay: new Date('1982-12-24'),
+                birthDay: new Date(birthDate),
                 siblings: ['Johnnathan'],
                 active: true,
                 address: {
@@ -440,25 +442,25 @@ const testCaseArrays = [
                     number: 1,
                     postalCode: '1234AB',
                     city: 'City',
-                    country: 'Somewehere',
+                    country: 'Somewehere'
                 },
-                companies: [{ name: 'Example 1' }, { name: 'Example 2' }],
+                companies: [{ name: 'Example 1' }, { name: 'Example 2' }]
             },
             {
                 name: 'James',
                 age: 25,
-                active: true,
-            },
+                active: true
+            }
         ],
         schema: personSchema,
-        expectedValue: false,
+        expectedValue: false
     },
     {
         description: 'Input isnt an array',
         input: {
             name: 'James',
             age: 25,
-            birthDay: new Date('1982-12-24'),
+            birthDay: new Date(birthDate),
             siblings: ['Johnnathan'],
             active: true,
             address: {
@@ -466,19 +468,19 @@ const testCaseArrays = [
                 number: 1,
                 postalCode: '1234AB',
                 city: 'City',
-                country: 'Somewehere',
+                country: 'Somewehere'
             },
-            companies: [{ name: 'Example 1' }, { name: 'Example 2' }],
+            companies: [{ name: 'Example 1' }, { name: 'Example 2' }]
         },
         schema: personSchema,
-        expectedValue: false,
+        expectedValue: false
     },
     {
         description: 'Input is an empty array',
         input: [],
         schema: personSchema,
-        expectedValue: false,
-    },
+        expectedValue: false
+    }
 ]
 
 test('Validator test with arrays', async (t) => {

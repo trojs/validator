@@ -3,5 +3,5 @@ export default {
     number: 'number',
     postalCode: 'string',
     city: 'string',
-    country: 'string',
+    country: 'string'
 }
