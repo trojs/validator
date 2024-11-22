@@ -4,4 +4,4 @@ export default {
     milage: 'number',
     extras: 'array',
     build: 'function',
-};
+}

@@ -4,4 +4,4 @@ export default {
     postalCode: 'string',
     city: 'string',
     country: 'string',
-};
+}

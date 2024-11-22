@@ -1,15 +1,15 @@
-import test from 'node:test';
-import assert from 'node:assert';
-import { Validator } from '../../src/validator.js';
-import barSchema from '../../src/schemas/bar.js';
-import carSchema from '../../src/schemas/car.js';
-import personSchema from '../../src/schemas/person.js';
-import addressSchema from '../../src/schemas/address.js';
-import companySchema from '../../src/schemas/company.js';
-import test1Schema from '../../src/schemas/test1.js';
-import Test2 from '../../src/schemas/test2.js';
+import test from 'node:test'
+import assert from 'node:assert'
+import { Validator } from '../../src/validator.js'
+import barSchema from '../../src/schemas/bar.js'
+import carSchema from '../../src/schemas/car.js'
+import personSchema from '../../src/schemas/person.js'
+import addressSchema from '../../src/schemas/address.js'
+import companySchema from '../../src/schemas/company.js'
+import test1Schema from '../../src/schemas/test1.js'
+import Test2 from '../../src/schemas/test2.js'
 
-const test2 = new Test2('me');
+const test2 = new Test2('me')
 
 const testCases = [
     {
@@ -366,7 +366,7 @@ const testCases = [
         expectedValue: false,
         expectedErrors: [['test6?', 'object|string']],
     },
-];
+]
 
 test('Validator test', async (t) => {
     await Promise.all(
@@ -379,16 +379,16 @@ test('Validator test', async (t) => {
                 expectedErrors,
             }) => {
                 await t.test(description, () => {
-                    const validator = new Validator(schema);
-                    const valid = validator.validate(input);
+                    const validator = new Validator(schema)
+                    const valid = validator.validate(input)
 
-                    assert.strictEqual(valid, expectedValue);
-                    assert.deepEqual(validator.errors, expectedErrors);
-                });
+                    assert.strictEqual(valid, expectedValue)
+                    assert.deepEqual(validator.errors, expectedErrors)
+                })
             }
         )
-    );
-});
+    )
+})
 
 const testCaseArrays = [
     {
@@ -479,21 +479,21 @@ const testCaseArrays = [
         schema: personSchema,
         expectedValue: false,
     },
-];
+]
 
 test('Validator test with arrays', async (t) => {
     await Promise.all(
         testCaseArrays.map(
             async ({ description, input, schema, expectedValue }) => {
                 await t.test(description, () => {
-                    const validator = new Validator(schema);
+                    const validator = new Validator(schema)
 
                     assert.deepEqual(
                         validator.validateAll(input),
                         expectedValue
-                    );
-                });
+                    )
+                })
             }
         )
-    );
-});
+    )
+})

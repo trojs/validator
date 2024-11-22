@@ -1,5 +1,5 @@
-import Test2 from './test2.js';
-import Test3Schema from './test3.js';
+import Test2 from './test2.js'
+import Test3Schema from './test3.js'
 
 export default {
     name: String,
@@ -8,4 +8,4 @@ export default {
     'test4?': 'mixed',
     'test5?': 'function|async',
     'test6?': 'object|string',
-};
+}

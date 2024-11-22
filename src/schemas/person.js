@@ -1,5 +1,5 @@
-import addressSchema from './address.js';
-import companySchema from './company.js';
+import addressSchema from './address.js'
+import companySchema from './company.js'
 
 export default {
     name: String,
@@ -10,4 +10,4 @@ export default {
     active: Boolean,
     address: addressSchema,
     companies: companySchema,
-};
+}
