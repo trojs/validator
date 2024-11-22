@@ -11,7 +11,7 @@ import Test2 from '../../src/schemas/test2.js'
 
 const test2 = new Test2('me')
 
-const birthDate = '1982-12-24'
+const birthDay = '1982-12-24'
 
 const testCases = [
     {
@@ -183,7 +183,7 @@ const testCases = [
         input: {
             name: 'James',
             age: 25,
-            birthDay: new Date(birthDate),
+            birthDay: new Date(birthDay),
             siblings: ['Johnnathan'],
             metaData: {},
             active: true,
@@ -207,7 +207,7 @@ const testCases = [
         input: {
             name: 'James',
             age: 25,
-            birthDay: new Date(birthDate),
+            birthDay: new Date(birthDay),
             siblings: ['Johnnathan'],
             active: false,
             address: {
@@ -228,7 +228,7 @@ const testCases = [
         input: {
             name: 'James',
             age: 25,
-            birthDay: new Date(birthDate),
+            birthDay: new Date(birthDay),
             siblings: ['Johnnathan'],
             metaData: null,
             active: true,
@@ -250,7 +250,7 @@ const testCases = [
         input: {
             name: 'James',
             age: 25,
-            birthDay: new Date(birthDate),
+            birthDay: new Date(birthDay),
             siblings: ['Johnnathan'],
             metaData: undefined,
             active: true,
@@ -272,7 +272,7 @@ const testCases = [
         input: {
             name: 'James',
             age: 25,
-            birthDay: new Date(birthDate),
+            birthDay: new Date(birthDay),
             active: true
         },
         schema: personSchema,
@@ -288,7 +288,7 @@ const testCases = [
         input: {
             name: '',
             age: 25,
-            birthDay: new Date(birthDate),
+            birthDay: new Date(birthDay),
             siblings: ['Johnnathan'],
             metaData: undefined,
             active: true,
@@ -399,7 +399,7 @@ const testCaseArrays = [
             {
                 name: 'James',
                 age: 25,
-                birthDay: new Date(birthDate),
+                birthDay: new Date(birthDay),
                 siblings: ['Johnnathan'],
                 active: true,
                 address: {
@@ -421,7 +421,7 @@ const testCaseArrays = [
             {
                 name: 'James',
                 age: 25,
-                birthDay: new Date(birthDate),
+                birthDay: new Date(birthDay),
                 active: true
             }
         ],
@@ -434,7 +434,7 @@ const testCaseArrays = [
             {
                 name: 'James',
                 age: 25,
-                birthDay: new Date(birthDate),
+                birthDay: new Date(birthDay),
                 siblings: ['Johnnathan'],
                 active: true,
                 address: {
@@ -460,7 +460,7 @@ const testCaseArrays = [
         input: {
             name: 'James',
             age: 25,
-            birthDay: new Date(birthDate),
+            birthDay: new Date(birthDay),
             siblings: ['Johnnathan'],
             active: true,
             address: {
