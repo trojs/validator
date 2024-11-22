@@ -10,9 +10,9 @@
     "source": "src/validator.js",
     "module": "src/validator.js",
     "scripts": {
-        "lint": "eslint src",
+        "lint": "eslint",
         "lint:report": "eslint src --config eslint.config.js -f json -o report.json",
-        "lint:fix": "eslint src --fix",
+        "lint:fix": "eslint --fix",
         "test": "c8 node --test tests/unit/validator.spec.js",
         "cpd": "node_modules/jscpd/bin/jscpd src",
         "vulnerabilities": "npm audit --production"
