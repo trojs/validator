@@ -1,7 +1,7 @@
 export default {
-    brand: 'string',
-    type: 'string',
-    milage: 'number',
-    extras: 'array',
-    build: 'function'
+  brand: 'string',
+  type: 'string',
+  milage: 'number',
+  extras: 'array',
+  build: 'function'
 }
