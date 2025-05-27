@@ -37,7 +37,7 @@ jobs:
           git pull
           npm version $TAG --no-git-tag-version
           git add package.json package-lock.json
-          git commit -m "ci: set version to $TAG [skip ci]"
+          git commit -m "ci: set version to $TAG [skip ci]" || true
           git push origin master
       - run: npm run build --if-present
       - run: npm publish --access public
