@@ -1,6 +1,6 @@
 {
     "name": "@trojs/validator",
-    "version": "11.0.2",
+    "version": "11.0.4",
     "description": "Object validator",
     "main": "src/validator.js",
     "type": "module",
