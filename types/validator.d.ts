@@ -83,5 +83,9 @@ export namespace types {
     export { _function as function };
     export { AsyncFunction as async };
 }
-declare const AsyncFunction: Function;
+/**
+ * Represents the constructor for async functions.
+ * @type {new (...args: unknown[]) => (...args: unknown[]) => unknown}
+ */
+declare const AsyncFunction: new (...args: unknown[]) => (...args: unknown[]) => unknown;
 export {};

@@ -6,7 +6,11 @@
  */
 
 const exampleAsyncFunction = async () => {}
-const AsyncFunction = exampleAsyncFunction.constructor
+/**
+ * Represents the constructor for async functions.
+ * @type {new (...args: unknown[]) => (...args: unknown[]) => unknown}
+ */
+const AsyncFunction = /** @type {new (...args: unknown[]) => (...args: unknown[]) => unknown} */ (exampleAsyncFunction.constructor)
 const types = /** @type {const} */ ({
   string: String,
   array: Array,
@@ -140,14 +144,15 @@ class Validator {
     const fieldTypeX = this.findFieldType(fieldType, value)
     if (typeof fieldTypeX !== 'string' || !(fieldTypeX in types)) {
       const validationMethod = /** @type {keyof Validator} */ (`validate${value.constructor.name}`)
-      // @ts-ignore
-      return typeof this[validationMethod] === 'function'
-        // @ts-ignore
-        ? this[validationMethod](value, fieldType)
-        : false
+      const method = this[validationMethod]
+      if (typeof method === 'function') {
+        // Always call with 3 arguments, as expected by your validation methods
+        const result = method.call(this, value, fieldType, item)
+        return typeof result === 'boolean' ? result : false
+      }
+      return false
     }
 
-    // @ts-ignore
     const type = types[fieldTypeX]
 
     return value.constructor === type
