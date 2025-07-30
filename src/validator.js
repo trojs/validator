@@ -14,6 +14,7 @@ const types = {
 
 /**
  * Object validator.
+ * @type {import('../types/validator.d.ts').Validator}
  */
 class Validator {
   /**
