@@ -15,7 +15,7 @@
         "lint:report": "eslint src --config eslint.config.js -f json -o report.json",
         "lint:fix": "eslint src --fix",
         "lint:types": "tsc --noEmit --project tsconfig.json --skipLibCheck",
-        "generate:types": "tsc --skipLibCheck --declaration --allowJs --emitDeclarationOnly --outDir types src/validator.js",
+        "generate:types": "rm -rf types && tsc --skipLibCheck --declaration --allowJs --emitDeclarationOnly --outDir types src/validator.js",
         "test": "node --test --experimental-test-coverage --test-reporter=spec --test-reporter=lcov --test-reporter-destination=stdout --test-reporter-destination=./coverage/lcov.info",
         "cpd": "node_modules/jscpd/bin/jscpd src",
         "vulnerabilities": "npm audit --production"
