@@ -1,3 +1,5 @@
+/* @ts-self-types="../types/validator.d.ts" */
+
 const exampleAsyncFunction = async () => {}
 const AsyncFunction = exampleAsyncFunction.constructor
 const types = {
