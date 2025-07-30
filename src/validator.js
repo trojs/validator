@@ -1,8 +1,13 @@
 /* @ts-self-types="../types/validator.d.ts" */
 
+/**
+ * @typedef {Record<string, unknown>} Schema
+ * @typedef {Record<string, unknown>} Item
+ */
+
 const exampleAsyncFunction = async () => {}
 const AsyncFunction = exampleAsyncFunction.constructor
-const types = {
+const types = /** @type {const} */ ({
   string: String,
   array: Array,
   object: Object,
@@ -12,7 +17,7 @@ const types = {
   date: Date,
   function: Function,
   async: AsyncFunction
-}
+})
 
 /**
  * Object validator.
@@ -21,24 +26,25 @@ const types = {
 class Validator {
   /**
    * Set the schema for the validator.
-   * @param {object} schema
+   * @param {Schema} schema
    */
   constructor (schema) {
+    /** @type {Schema} */
     this.schema = schema
+    /** @type {Array<[string, unknown]>} */
     this.errors = []
   }
 
   /**
-   * Validate the an array of items.
-   * @param {Array} input
+   * Validate an array of items.
+   * @param {{[key: string]: string}[]} input
    * @returns {boolean}
    */
   validateAll (input) {
     this.errors = []
-    if (input.constructor !== Array || input.length < 1) {
+    if (!Array.isArray(input) || input.length < 1) {
       return false
     }
-
     return input.every((item) => this.validateItem(item))
   }
 
@@ -62,12 +68,17 @@ class Validator {
       ([fieldNameRaw, fieldType]) =>
         !this.filterItems(fieldNameRaw, fieldType, item)
     )
-
     return Object.entries(this.schema).every(([fieldNameRaw, fieldType]) =>
       this.filterItems(fieldNameRaw, fieldType, item)
     )
   }
 
+  /**
+   * Find the field type.
+   * @param {string|unknown} fieldType
+   * @param {unknown} value
+   * @returns {string|unknown}
+   */
   findFieldType (fieldType, value) {
     if (typeof fieldType === 'string') {
       const fieldTypes = fieldType.split('|')
@@ -84,8 +95,8 @@ class Validator {
   /**
    * Filter the items.
    * @param {string} fieldNameRaw
-   * @param {any} fieldType
-   * @param {object} item
+   * @param {unknown} fieldType
+   * @param {Record<string, unknown>} item
    * @returns {boolean}
    */
   filterItems (fieldNameRaw, fieldType, item) {
@@ -120,22 +131,23 @@ class Validator {
     }
 
     if (
-      (typeof fieldType !== 'string'
-        && value.constructor === fieldType)
+      (typeof fieldType !== 'string' && value.constructor === fieldType)
       || fieldType === 'mixed'
     ) {
       return true
     }
 
     const fieldTypeX = this.findFieldType(fieldType, value)
-    if (!(fieldTypeX in types)) {
-      const validationMethod = `validate${value.constructor.name}`
-
-      return this[validationMethod]
+    if (typeof fieldTypeX !== 'string' || !(fieldTypeX in types)) {
+      const validationMethod = /** @type {keyof Validator} */ (`validate${value.constructor.name}`)
+      // @ts-ignore
+      return typeof this[validationMethod] === 'function'
+        // @ts-ignore
         ? this[validationMethod](value, fieldType)
         : false
     }
 
+    // @ts-ignore
     const type = types[fieldTypeX]
 
     return value.constructor === type
@@ -143,8 +155,8 @@ class Validator {
 
   /**
    * Validate an array
-   * @param {any} value
-   * @param {string} fieldType
+   * @param {Array<unknown>} value
+   * @param {unknown} fieldType
    * @returns {boolean}
    */
   validateArray (value, fieldType) {
@@ -153,13 +165,12 @@ class Validator {
 
   /**
    * Validate an object
-   * @param {any} value
-   * @param {string} fieldType
+   * @param {object} value
+   * @param {object} fieldType
    * @returns {boolean}
    */
   validateObject (value, fieldType) {
     const validator = new Validator(fieldType)
-
     return validator.validate(value)
   }
 }
