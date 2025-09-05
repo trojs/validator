@@ -6,5 +6,8 @@
             "dom.iterable",
             "deno.window"
         ]
+    },
+    "tasks": {
+        "check": "deno check src/validator.js"
     }
 }
