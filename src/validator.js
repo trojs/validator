@@ -8,12 +8,12 @@
 /**
  * A portable URL constructor shape that avoids DOM-specific MediaSource in d.ts.
  * @typedef {{
- *   new (url: string | URL, base?: string | URL): URL
- *   prototype: URL
- *   canParse(url: string | URL, base?: string | URL): boolean
- *   createObjectURL(obj: Blob | unknown): string
- *   parse(url: string | URL, base?: string | URL): URL | null
- *   revokeObjectURL(url: string): void
+ * new (url: string | URL, base?: string | URL): URL
+ * prototype: URL
+ * canParse(url: string | URL, base?: string | URL): boolean
+ * createObjectURL(obj: Blob | unknown): string
+ * parse(url: string | URL, base?: string | URL): URL | null
+ * revokeObjectURL(url: string): void
  * }} URLStatic
  */
 
