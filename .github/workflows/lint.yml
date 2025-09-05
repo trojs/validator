@@ -8,7 +8,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
@@ -31,4 +30,4 @@ jobs:
       - name: Deno lint
         run: deno lint
       - name: Deno check
-        run: deno check
+        run: deno task check

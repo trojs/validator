@@ -1,6 +1,17 @@
 export type Schema = Record<string, unknown>;
 export type Item = Record<string, unknown>;
 /**
+ * A portable URL constructor shape that avoids DOM-specific MediaSource in d.ts.
+ */
+export type URLStatic = {
+    new (url: string | URL, base?: string | URL): URL;
+    prototype: URL;
+    canParse(url: string | URL, base?: string | URL): boolean;
+    createObjectURL(obj: Blob | unknown): string;
+    parse(url: string | URL, base?: string | URL): URL | null;
+    revokeObjectURL(url: string): void;
+};
+/**
  * Object validator.
  * @type {import('../types/validator.d.ts').Validator}
  */
@@ -70,14 +81,7 @@ export namespace types {
     export let object: ObjectConstructor;
     export let number: NumberConstructor;
     export let boolean: BooleanConstructor;
-    export let url: {
-        new (url: string | URL, base?: string | URL): URL;
-        prototype: URL;
-        canParse(url: string | URL, base?: string | URL): boolean;
-        createObjectURL(obj: Blob | MediaSource): string;
-        parse(url: string | URL, base?: string | URL): URL | null;
-        revokeObjectURL(url: string): void;
-    };
+    export let url: URLStatic;
     export let date: DateConstructor;
     let _function: FunctionConstructor;
     export { _function as function };
