@@ -1,17 +1,17 @@
 {
-    "name": "@trojs/validator",
-    "version": "11.1.2",
-    "license": "MIT",
-    "exports": "./src/validator.js",
-    "compilerOptions": {
-        "lib": [
-            "esnext",
-            "dom",
-            "dom.iterable",
-            "deno.window"
-        ]
-    },
-    "tasks": {
-        "check": "deno check src/validator.js"
-    }
+  "name": "@trojs/validator",
+  "version": "11.1.4",
+  "license": "MIT",
+  "exports": "./src/validator.js",
+  "compilerOptions": {
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "deno.window"
+    ]
+  },
+  "tasks": {
+    "check": "deno check src/validator.js"
+  }
 }
