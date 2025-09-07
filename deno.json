@@ -1,4 +1,8 @@
 {
+    "name": "@trojs/validator",
+    "version": "11.1.2",
+    "license": "MIT",
+    "exports": "./src/validator.js",
     "compilerOptions": {
         "lib": [
             "esnext",
