@@ -1,6 +1,10 @@
 import Test2 from './test2.js'
 import Test3Schema from './test3.js'
 
+/**
+ * Test1 schema definition
+ * @type {Record<string, any>}
+ */
 export default {
   name: String,
   test: Test2,

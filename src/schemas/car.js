@@ -1,3 +1,7 @@
+/**
+ * Car schema definition
+ * @type {Record<string, string>}
+ */
 export default {
   brand: 'string',
   type: 'string',
