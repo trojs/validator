@@ -1,6 +1,6 @@
 {
   "name": "@trojs/validator",
-  "version": "11.1.5",
+  "version": "12.0.0",
   "license": "MIT",
   "exports": "./src/validator.js",
   "compilerOptions": {
