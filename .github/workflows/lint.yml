@@ -23,7 +23,7 @@ jobs:
           CI: true
 
       - name: Install Deno
-        uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@v2.0.4
         with:
           deno-version: 2.x
 
